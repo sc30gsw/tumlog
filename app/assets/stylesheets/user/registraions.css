@@ -73,3 +73,18 @@
   color: black;
   border-bottom: 1px solid black;
 }
+
+.links {
+  margin-top: 50px;
+}
+
+.registrations {
+  color: black;
+}
+
+.forgat_password {
+  display: block;
+  color: black;
+  margin-top: 20px;
+}
+
