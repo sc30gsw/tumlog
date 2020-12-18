@@ -6,10 +6,10 @@
           <a class="header-list" href="#">カテゴリー</a>
         </li>
         <li>
-          <a class="header-list" href="#">ログイン</a>
+          <%= link_to 'ログイン', new_user_session_path, class:"header-list" %>
         </li>
         <li>
-          <a class="header-list" href="#">新規登録</a>
+          <%= link_to '新規登録', new_user_registration_path, class: "header-list" %>
         </li>
       </ul> 
   </div>
