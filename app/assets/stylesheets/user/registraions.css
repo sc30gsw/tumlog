@@ -3,6 +3,11 @@
   margin-top: 20px;
 }
 
+.form-group {
+  text-align: center;
+  padding: 50px 0;
+}
+
 .title {
   margin: 20px 0;
   font-size: 25px;
@@ -11,6 +16,11 @@
 
 .sign_up_logo {
   height: 80px;
+}
+
+.errors {
+  text-align: center;
+  color: red;
 }
 
 .field {
@@ -46,6 +56,9 @@
   color: white;
 }
 
+.form-roles {
+  margin-bottom: 100px;
+}
 .role-lists {
   text-align: center;
   margin-top: 20px;
