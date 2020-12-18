@@ -5,12 +5,20 @@
         <li>
           <a class="header-list" href="#">カテゴリー</a>
         </li>
-        <li>
-          <a class="header-list" href="#">ログイン</a>
-        </li>
-        <li>
-          <a class="header-list" href="#">新規登録</a>
-        </li>
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "header-list" %>
+          </li>
+          <li>
+            <%= link_to '新規登録', new_user_registration_path, class: "header-list" %>
+        <% else %>
+          <li>
+            <%= link_to 'ログイン', new_user_session_path, class:"header-list" %>
+          </li>
+          <li>
+            <%= link_to '新規登録', new_user_registration_path, class: "header-list" %>
+          </li>
+        <% end %>
       </ul> 
   </div>
 </div>
