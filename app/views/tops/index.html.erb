@@ -1,1 +1,80 @@
-
+<div class="wrapper">
+  <div class="header">
+    <%= render "shared/header" %>
+      <ul class="header-lists">
+        <li>
+          <a class="header-list" href="#">カテゴリー</a>
+        </li>
+        <li>
+          <a class="header-list" href="#">ログイン</a>
+        </li>
+        <li>
+          <a class="header-list" href="#">新規登録</a>
+        </li>
+      </ul> 
+  </div>
+</div>
+<div class="main-wrapper">
+  <div class ="main-upper">
+    <div class="main-image-left"></div>
+    <div class="main-image-center"></div>
+    <div class="main-image-right"></div>
+  </div>
+  <div class="main-contents">
+    <h2 class="catch-copy">人生を変える習慣化アプリ</h2>
+    <p class="concept">積みログは「みんなと習慣を作る」をコンセプト元に作成された、</p>
+    <p class="app-concept">「習慣化アプリ」です</p>
+  </div>
+<div class="main">
+    <div class="explain">
+      <h1 class="about">積みログの特徴</h1>
+        <div class="about-image">
+          <img class="left-explain" src="http://gahag.net/img/201509/30s/gahag-0009434604-1.jpg">
+          <img class="center-explain" src="https://www.keieiryoku.jp/img/catch/000100.jpg">
+          <img class="right-explain" src="https://is702.jp/main/special/3502/images/special_main.jpg">
+        </div>
+      <ul class="about-lists">
+        <li class="about-left">シンプルで使いやすい！</li>
+        <li class="about-center">同じ目標のカテゴリーを選択！</li>
+        <li class="about-right">習慣を投稿してシェアし合うおう！</li>
+      </ul>
+    </div>
+  </div>
+<div class="promotion">
+    <div class="promotion-content">
+      <%= image_tag("logo.png", class: "promotion-image", height: "80", width: "200", alt: "積みログ") %>  
+      <h1 class="promotion-text">今すぐアプリを使ってみよう！</h1>
+      <p>※ 各アイコンをクリックでスタート！</p>
+    </div>
+  </div>
+<div class="main-lower">
+    <div class="main-category">
+      <div class="category-title">
+        <h1 class="category">習慣化カテゴリー</h1>
+      </div>
+      <ul class="category-lists">
+        <li class="running">運動</li>
+        <li class="weight">ダイエット(体重管理)</li>
+        <li class="study">勉強</li>
+      </ul>
+      <div class="category-image">
+        <%= image_tag("running.png", class: "running-image") %>
+        <%= image_tag("weight.png", class: "weight-image") %>
+        <%= image_tag("books.png", class: "books-image") %>
+      </div>
+      <ul class="category-lists-under">
+        <li class="money">節約</li>
+        <li class="mindfule">マインドフルネス瞑想</li>
+      </ul>
+      <div class="category-image-under">
+        <%= image_tag("money.png", class: "money-image") %>
+        <%= image_tag("mindfule.png", class: "mindfule-image") %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer-wrapper">
+  <div class="footer">
+    <%= render "shared/footer" %>
+  </div>
+</div>
