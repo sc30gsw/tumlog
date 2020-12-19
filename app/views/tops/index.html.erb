@@ -2,6 +2,9 @@
   <div class="header">
     <%= render "shared/header" %>
       <ul class="header-lists">
+        <% if user_signed_in? %>
+          <li><a class="header-user" href="#">こんにちは、ユーザーさん</a></li>
+        <% end %>
         <li>
           <a class="header-list" href="#">カテゴリー</a>
         </li>
@@ -11,6 +14,7 @@
           </li>
           <li>
             <%= link_to '新規登録', new_user_registration_path, class: "header-list" %>
+          </li>
         <% else %>
           <li>
             <%= link_to 'ログイン', new_user_session_path, class:"header-list" %>
@@ -37,7 +41,7 @@
     <div class="explain">
       <h1 class="about">積みログの特徴</h1>
         <div class="about-image">
-          <img class="left-explain" src="http://gahag.net/img/201509/30s/gahag-0009434604-1.jpg">
+          <img class="left-explain" src="https://renai-torisetsu.net/wp-content/uploads/2017/07/2-1-2-500x334.jpg">
           <img class="center-explain" src="https://www.keieiryoku.jp/img/catch/000100.jpg">
           <img class="right-explain" src="https://is702.jp/main/special/3502/images/special_main.jpg">
         </div>

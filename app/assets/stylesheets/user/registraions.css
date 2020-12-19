@@ -24,7 +24,6 @@
 }
 
 .field {
-  text-align: center;
   margin-top: 20px;
 }
 
@@ -38,10 +37,6 @@
 
 .password-text {
   margin-top: 10px;
-}
-
-.actions {
- text-align: center;
 }
 
 .actions p {
@@ -59,9 +54,10 @@
 .form-roles {
   margin-bottom: 100px;
 }
+
 .role-lists {
-  text-align: center;
   margin-top: 20px;
+  list-style: none;
 }
 
 .role-lists li {
