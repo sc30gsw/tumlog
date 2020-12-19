@@ -18,28 +18,32 @@
 
 ## habitsテーブル
 
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| text   | text       | null: false                    |
-| user   | references | null: false, foreign_key: true |
-| room   | references | null: false, foreign_key: true |
+| Column    | Type       | Options                        |
+| --------- | ---------- | ------------------------------ |
+| text      | text       | null: false                    |
+| user      | references | null: false, foreign_key: true |
+| exercise  | references | foreign_key: true              |
+| daiet     | references | foreign_key: true              |
+| learn     | references | foreign_key: true              |
+| saving    | references | foreign_key: true              |
+| mind      | references | foreign_key: true              |
 
 ### Association
 
 - has_many :comments
 - belongs_to :user
 - belongs_to :exercise
-- belongs_to :daiets
-- belongs_to :studies
-- belongs_to :savings
-- belongs_to :minds
+- belongs_to :daiet
+- belongs_to :learn
+- belongs_to :saving
+- belongs_to :mind
 - has_one_attached :image
 
 ## exercisesテーブル
 
-| Column | Type       | Options           |
-| ------ | ---------- | ----------------- |
-| habit  | references | foreign_key: true |
+| Column | Type | Options | 
+| ------ | ---- | ------- |
+| ------ | ---- | ------- |
 
 ### Association
 
@@ -47,19 +51,19 @@
 
 ## daietsテーブル
 
-| Column | Type       | Options           |
-| ------ | ---------- | ----------------- |
-| habit  | references | foreign_key: true |
+| Column | Type | Options | 
+| ------ | ---- | ------- |
+| ------ | ---- | ------- |
 
 ### Association
 
 - has_many :habits
 
-## studiesテーブル
+## learnsテーブル
 
-| Column | Type       | Options           |
-| ------ | ---------- | ----------------- |
-| habit  | references | foreign_key: true |
+| Column | Type | Options | 
+| ------ | ---- | ------- |
+| ------ | ---- | ------- |
 
 ### Association
 
@@ -67,9 +71,9 @@
 
 ## savingsテーブル
 
-| Column | Type       | Options           |
-| ------ | ---------- | ----------------- |
-| habit  | references | foreign_key: true |
+| Column | Type | Options | 
+| ------ | ---- | ------- |
+| ------ | ---- | ------- |
 
 ### Association
 
@@ -77,9 +81,9 @@
 
 ## mindsテーブル
 
-| Column | Type       | Options           |
-| ------ | ---------- | ----------------- |
-| habit  | references | foreign_key: true |
+| Column | Type | Options | 
+| ------ | ---- | ------- |
+| ------ | ---- | ------- |
 
 ### Association
 
