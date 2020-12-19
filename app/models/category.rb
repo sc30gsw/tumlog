@@ -10,4 +10,5 @@ class Category < ActiveHash::Base
 
   include AcitiveHash::Associations 
   has_many :rooms
+
 end
