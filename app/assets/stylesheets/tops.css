@@ -18,6 +18,15 @@
   list-style: none;
 }
 
+.header-user {
+  margin-left: 40px;
+  position: relative;
+  bottom: 50px;
+  right: 100px;
+  font-size: 20px;
+  color: black;
+}
+
 .header-list {
   margin-left: 40px;
   position: relative;
