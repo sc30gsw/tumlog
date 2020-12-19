@@ -28,33 +28,62 @@
 
 - has_many :comments
 - belongs_to :user
-- belongs_to :room
+- belongs_to :exercise
+- belongs_to :daiets
+- belongs_to :studies
+- belongs_to :savings
+- belongs_to :minds
 - has_one_attached :image
 
-## roomsテーブル
+## exercisesテーブル
 
-| Column      | Type       | Options                        |
-| ----------- | ---------- | ------------------------------ |
-| category_id | integer    | null: false                    |
-| habit       | references | null: false, foreign_key: true |
+| Column | Type       | Options           |
+| ------ | ---------- | ----------------- |
+| habit  | references | foreign_key: true |
 
 ### Association
 
-- has_many :users, through: room_users
 - has_many :habits
-- belongs_to_active_hash :category
 
-## room_usersテーブル
+## daietsテーブル
 
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| user   | references | null: false, foreign_key: true |
-| room   | references | null: false, foreign_key: true |
+| Column | Type       | Options           |
+| ------ | ---------- | ----------------- |
+| habit  | references | foreign_key: true |
 
 ### Association
 
-- belongs_to :user
-- belongs_to :room
+- has_many :habits
+
+## studiesテーブル
+
+| Column | Type       | Options           |
+| ------ | ---------- | ----------------- |
+| habit  | references | foreign_key: true |
+
+### Association
+
+- has_many :habits
+
+## savingsテーブル
+
+| Column | Type       | Options           |
+| ------ | ---------- | ----------------- |
+| habit  | references | foreign_key: true |
+
+### Association
+
+- has_many :habits
+
+## mindsテーブル
+
+| Column | Type       | Options           |
+| ------ | ---------- | ----------------- |
+| habit  | references | foreign_key: true |
+
+### Association
+
+- has_many :habits
 
 ## commentsテーブル
 
