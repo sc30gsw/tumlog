@@ -14,6 +14,10 @@
   font-weight: bold;
 }
 
+.errors {
+  list-style: none;
+}
+
 .sign_up_logo {
   height: 80px;
 }
