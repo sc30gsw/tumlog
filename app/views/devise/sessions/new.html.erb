@@ -4,10 +4,12 @@
 
 <div class="form-group">
   <h2 class="title">会員情報入力</h2>
-  <div class='login-flash-message'>
-    <%= flash[:notice] %>
-    <%= flash[:alert] %>
-  </div>
+<% if notice %>
+  <p class="alert alert-notice"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-error"><%= alert %></p>
+<% end %>
   <%= form_with model: @user, url: user_session_path, method: :post, locale: true do |f| %>
     <div class="field">
       <label><b>メールアドレス</b></label><span class="indispensable">必須</span><br />
