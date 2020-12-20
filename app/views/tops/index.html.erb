@@ -1,6 +1,5 @@
 <div class="wrapper">
   <div class="header">
-    <%= render "shared/header" %>
       <ul class="header-lists">
         <% if user_signed_in? %>
           <li>
@@ -28,6 +27,7 @@
             </select>
           </li>
       </ul> 
+      <%= link_to image_tag("logo.png", class: "header-image", height: "80", width: "200", alt: "積みログ"), root_path %>
   </div>
 </div>
 <div class="main-wrapper">
