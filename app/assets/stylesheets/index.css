@@ -317,7 +317,7 @@
   padding: 40px 20px;
   background-color: rgb(241, 76, 76);
   border: grey;
-  border-radius: 100%;
+  border-radius: 5%;
   color: white;
   position: fixed;
   right: 30px;
