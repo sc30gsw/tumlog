@@ -1,7 +1,9 @@
 <%= link_to image_tag("logo.png", class: "header-image", height: "80", width: "200", alt: "積みログ"), root_path %> 
 
 <% if user_signed_in? %>
-  <%= link_to current_user.nickname, root_path %>
+  <div class="room-user">
+    ようこそ、<br><%= link_to current_user.nickname, root_path, class: "room_user_name" %>さん
+  </div>
 <% end %>
 
 <div class="habits">
