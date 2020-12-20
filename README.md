@@ -12,94 +12,138 @@
 
 ### Association
 
-- has_many :habits
+- has_many :exercises
+- has_many :daiets
+- has_many :larns
+- has_many :savings
+- has_many :minds
 - has_many :comments
-
-## habitsテーブル
-
-| Column    | Type       | Options                        |
-| --------- | ---------- | ------------------------------ |
-| text      | text       | null: false                    |
-| user      | references | null: false, foreign_key: true |
-| exercise  | references | foreign_key: true              |
-| daiet     | references | foreign_key: true              |
-| learn     | references | foreign_key: true              |
-| saving    | references | foreign_key: true              |
-| mind      | references | foreign_key: true              |
-
-### Association
-
-- has_many :comments
-- belongs_to :user
-- belongs_to :exercise
-- belongs_to :daiet
-- belongs_to :learn
-- belongs_to :saving
-- belongs_to :mind
-- has_one_attached :image
 
 ## exercisesテーブル
 
-| Column | Type | Options | 
-| ------ | ---- | ------- |
-| ------ | ---- | ------- |
+| Column | Type       | Options                        | 
+| ------ | ---------- | ------------------------------ |
+| text   | text       | null: false                    |
+| user   | references | null: false, foreign_key: ture |
 
 ### Association
 
-- has_many :habits
+- has_many :exercise_commets
+- belongs_to :user
 
 ## daietsテーブル
 
-| Column | Type | Options | 
-| ------ | ---- | ------- |
-| ------ | ---- | ------- |
+
+| Column | Type       | Options                        | 
+| ------ | ---------- | ------------------------------ |
+| text   | text       | null: false                    |
+| user   | references | null: false, foreign_key: ture |
 
 ### Association
 
-- has_many :habits
+- hab_many :daiet_comments
+- belongs_to :user
 
 ## learnsテーブル
 
-| Column | Type | Options | 
-| ------ | ---- | ------- |
-| ------ | ---- | ------- |
+| Column | Type       | Options                        | 
+| ------ | ---------- | ------------------------------ |
+| text   | text       | null: false                    |
+| user   | references | null: false, foreign_key: ture |
 
 ### Association
 
-- has_many :habits
+- has_many :learn_comments
+- belongs_to :user
 
 ## savingsテーブル
 
-| Column | Type | Options | 
-| ------ | ---- | ------- |
-| ------ | ---- | ------- |
+| Column | Type       | Options                        | 
+| ------ | ---------- | ------------------------------ |
+| text   | text       | null: false                    |
+| user   | references | null: false, foreign_key: ture |
 
 ### Association
 
-- has_many :habits
+- has_many :saving_comments
+- belongs_to :user
 
 ## mindsテーブル
 
-| Column | Type | Options | 
-| ------ | ---- | ------- |
-| ------ | ---- | ------- |
+| Column | Type       | Options                        | 
+| ------ | ---------- | ------------------------------ |
+| text   | text       | null: false                    |
+| user   | references | null: false, foreign_key: ture |
 
 ### Association
 
-- has_many :habits
+- has_many :mind_commetns
+- belongs_to :user
 
-## commentsテーブル
+## exercise_commentsテーブル
+
+| Column     | Type       | Options                        |
+| ---------- | ---------- | ------------------------------ |
+| content    | string     | null: false                    |
+| user       | references | null: false, foreign_key: true |
+| exercise   | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :exercise
+
+## daiet_commentsテーブル
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
 | content | string     | null: false                    |
 | user    | references | null: false, foreign_key: true |
-| habit   | references | null: false, foreign_key: true |
+| daiet   | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- belongs_to :habits
+- belongs_to :daiet
+
+## learn_commentsテーブル
+
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| content | string     | null: false                    |
+| user    | references | null: false, foreign_key: true |
+| learn   | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :learn
+
+## saving_commentsテーブル
+
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| content | string     | null: false                    |
+| user    | references | null: false, foreign_key: true |
+| saving  | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :saving
+
+## mind_commentsテーブル
+
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| content | string     | null: false                    |
+| user    | references | null: false, foreign_key: true |
+| mind    | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :mind
 
 
 # Tumilog 概要
