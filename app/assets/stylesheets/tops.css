@@ -19,6 +19,7 @@
 }
 
 .header-user {
+  text-decoration: none;
   margin-left: 40px;
   position: relative;
   bottom: 50px;
