@@ -1,4 +1,4 @@
 class Learn < ApplicationRecord
 
-  has_many :habits
+  belongs_to :user
 end

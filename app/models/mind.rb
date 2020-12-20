@@ -1,4 +1,4 @@
 class Mind < ApplicationRecord
 
-  has_many :habits
+  belongs_to :user
 end
