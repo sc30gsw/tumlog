@@ -18,43 +18,76 @@
 
 ## habitsテーブル
 
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| text   | text       | null: false                    |
-| user   | references | null: false, foreign_key: true |
-| room   | references | null: false, foreign_key: true |
+| Column    | Type       | Options                        |
+| --------- | ---------- | ------------------------------ |
+| text      | text       | null: false                    |
+| user      | references | null: false, foreign_key: true |
+| exercise  | references | foreign_key: true              |
+| daiet     | references | foreign_key: true              |
+| learn     | references | foreign_key: true              |
+| saving    | references | foreign_key: true              |
+| mind      | references | foreign_key: true              |
 
 ### Association
 
 - has_many :comments
 - belongs_to :user
-- belongs_to :room
+- belongs_to :exercise
+- belongs_to :daiet
+- belongs_to :learn
+- belongs_to :saving
+- belongs_to :mind
 - has_one_attached :image
 
-## roomsテーブル
+## exercisesテーブル
 
-| Column      | Type       | Options                        |
-| ----------- | ---------- | ------------------------------ |
-| category_id | integer    | null: false                    |
-| habit       | references | null: false, foreign_key: true |
+| Column | Type | Options | 
+| ------ | ---- | ------- |
+| ------ | ---- | ------- |
 
 ### Association
 
-- has_many :users, through: room_users
 - has_many :habits
-- belongs_to_active_hash :category
 
-## room_usersテーブル
+## daietsテーブル
 
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| user   | references | null: false, foreign_key: true |
-| room   | references | null: false, foreign_key: true |
+| Column | Type | Options | 
+| ------ | ---- | ------- |
+| ------ | ---- | ------- |
 
 ### Association
 
-- belongs_to :user
-- belongs_to :room
+- has_many :habits
+
+## learnsテーブル
+
+| Column | Type | Options | 
+| ------ | ---- | ------- |
+| ------ | ---- | ------- |
+
+### Association
+
+- has_many :habits
+
+## savingsテーブル
+
+| Column | Type | Options | 
+| ------ | ---- | ------- |
+| ------ | ---- | ------- |
+
+### Association
+
+- has_many :habits
+
+## mindsテーブル
+
+| Column | Type | Options | 
+| ------ | ---- | ------- |
+| ------ | ---- | ------- |
+
+### Association
+
+- has_many :habits
 
 ## commentsテーブル
 

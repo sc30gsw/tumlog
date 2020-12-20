@@ -1,0 +1,2 @@
+class Daiet < ApplicationRecord
+end

@@ -1,19 +1,12 @@
 <div class="wrapper">
   <div class="header">
-    <%= render "shared/header" %>
       <ul class="header-lists">
         <% if user_signed_in? %>
-          <li><a class="header-user" href="#">こんにちは、ユーザーさん</a></li>
-        <% end %>
-        <li>
-          <a class="header-list" href="#">カテゴリー</a>
-        </li>
-        <% if user_signed_in? %>
           <li>
-            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "header-list" %>
+            <%= link_to "#{current_user.nickname}さん", root_path, class: "header-user" %>
           </li>
           <li>
-            <%= link_to '新規登録', new_user_registration_path, class: "header-list" %>
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "header-list" %>
           </li>
         <% else %>
           <li>
@@ -23,7 +16,18 @@
             <%= link_to '新規登録', new_user_registration_path, class: "header-list" %>
           </li>
         <% end %>
+          <li>
+            <select onChange="location.href=value;" class="header-list">
+              <option value=<%= root_path %>>カテゴリーを選択してください</option>
+              <option value=<%= exercises_path %>>運動</option>
+              <option value=<%= daiets_path %>>ダイエット(体重管理)</option>
+              <option value=<%= learns_path %>>勉強</option>
+              <option value=<%= savings_path %>>節約</option>
+              <option value=<%= minds_path%>>マインドフルネス瞑想</option>
+            </select>
+          </li>
       </ul> 
+      <%= link_to image_tag("logo.png", class: "header-image", height: "80", width: "200", alt: "積みログ"), root_path %>
   </div>
 </div>
 <div class="main-wrapper">
@@ -70,17 +74,17 @@
         <li class="study">勉強</li>
       </ul>
       <div class="category-image">
-        <%= image_tag("running.png", class: "running-image") %>
-        <%= image_tag("weight.png", class: "weight-image") %>
-        <%= image_tag("books.png", class: "books-image") %>
+        <%= link_to image_tag("running.png", class: "running-image", alt: "運動"), exercises_path %> 
+        <%= link_to image_tag("weight.png", class: "weight-image", alt: "ダイエット(体重管理)"), daiets_path %> 
+        <%= link_to image_tag("books.png", class: "books-image", alt: "勉強"), learns_path %>
       </div>
       <ul class="category-lists-under">
         <li class="money">節約</li>
         <li class="mindfule">マインドフルネス瞑想</li>
       </ul>
       <div class="category-image-under">
-        <%= image_tag("money.png", class: "money-image") %>
-        <%= image_tag("mindfule.png", class: "mindfule-image") %>
+        <%= link_to image_tag("money.png", class: "money-image", alt: "節約"), savings_path %>
+        <%= link_to image_tag("mindfule.png", class: "mindfule-image", alt: "マインドフルネス瞑想"), minds_path %>
       </div>
     </div>
   </div>

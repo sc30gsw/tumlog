@@ -1,0 +1,2 @@
+class Mind < ApplicationRecord
+end
