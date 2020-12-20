@@ -14,7 +14,7 @@
 
 - has_many :exercises
 - has_many :daiets
-- has_many :larns
+- has_many :learns
 - has_many :savings
 - has_many :minds
 - has_many :comments
