@@ -28,14 +28,16 @@
       <div class="habit-user">
         <b><%= exercise.user.nickname %>さんの投稿</b>
       </div>
+      <%= link_to exercise_path(exercise.id), class: "habit_link" do%>
         <div class="habit-contents">
-        <div class="habit-text">
-          <%= simple_format(exercise.text) %>
+          <div class="habit-text">
+            <%= simple_format(exercise.text) %>
+          </div>
+          <div class="habit-image">
+           <%= image_tag exercise.image.variant(resize: '500x500') if exercise.image.attached? %>
+          </div>
         </div>
-        <div class="habit-image">
-          <%= image_tag exercise.image.variant(resize: '500x500') if exercise.image.attached? %>
-        </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>

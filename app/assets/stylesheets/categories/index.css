@@ -52,6 +52,11 @@
   bottom: 10px;
 }
 
+.habit_link {
+  text-decoration: none;
+  color: black;
+}
+
 .room-user{
   margin-left: 40px;
 }
@@ -82,4 +87,9 @@
   margin-bottom: 20px;
   border-bottom: 1px solid gray;
   text-align: center;
+}
+
+.habit_path {
+  text-decoration: none;
+  color: black;
 }
