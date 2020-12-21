@@ -1,0 +1,23 @@
+<div class="new-wrapper">
+  <div class="new-header"></div>
+  <div class="new-habits-form">
+    <div class="new-habit">
+      <div class="new-title">
+        <h1 class="new-form-title">投稿する</h1>
+      </div>
+      <%= form_with model: @exercise, url: exercises_path, method: :post, local: true do |f| %>        
+        <div class="new-habit-text">
+         <%= f.text_area :text, atuofocus: true, rows: 10, placeholder: "今日積み上げた習慣など投稿してみよう！", class: "new-text" %>
+        </div>
+        <div class="new-habit-btn">
+          <div class="new-habit-image">
+            <span class="image-file"><%= f.label :image, '画像' %></span>
+            <%= f.file_field :image, class: "hidden_image" %>
+          </div>
+          <%= f.submit '投稿する', class: "habit-submit" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<%= link_to image_tag("logo.png", class: "header-image", height: "80", width: "200", alt: "積みログ"), exercises_path %> 
