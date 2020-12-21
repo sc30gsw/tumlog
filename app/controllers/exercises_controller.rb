@@ -1,4 +1,6 @@
 class ExercisesController < ApplicationController
+  before_action :authenticate_user!, except: :index
+
   def index
     @exercises = Exercise.all
   end
@@ -10,6 +12,7 @@ class ExercisesController < ApplicationController
   def create
     @exercise = Exercise.new(exercise_params)
     if @exercise.valid?
+      @exercise.save
       redirect_to action: :index
     else
       render :new
