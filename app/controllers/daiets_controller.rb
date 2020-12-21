@@ -20,6 +20,7 @@ class DaietsController < ApplicationController
   end
 
   def show
+    @daiet = Daiet.find(params[:id])
   end
 
   private

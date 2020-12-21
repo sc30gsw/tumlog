@@ -20,6 +20,7 @@ class MindsController < ApplicationController
   end
 
   def show
+    @mind = Mind.find(params[:id])
   end
   
   private

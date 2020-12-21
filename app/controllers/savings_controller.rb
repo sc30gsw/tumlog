@@ -20,6 +20,7 @@ class SavingsController < ApplicationController
   end
 
   def show
+    @saving = Saving.find(params[:id])
   end
   
   private
