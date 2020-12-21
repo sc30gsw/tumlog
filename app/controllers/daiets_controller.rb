@@ -1,5 +1,5 @@
 class DaietsController < ApplicationController
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @daiets = Daiet.all
@@ -17,6 +17,9 @@ class DaietsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
   end
 
   private
