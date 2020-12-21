@@ -3,6 +3,9 @@
   <div class="new-habits-form">
     <div class="new-habit">
       <div class="new-title">
+        <div class="errors">
+          <%= render 'shared/error_messages', model: @exercise, class: "error_messages" %>
+        </div>
         <h1 class="new-form-title">投稿する</h1>
       </div>
       <%= form_with model: @exercise, url: exercises_path, method: :post, local: true do |f| %>        
