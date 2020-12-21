@@ -39,6 +39,10 @@
   color: white;
 }
 
+.profile-box {
+  padding: 5px;
+}
+
 .password-text {
   margin-top: 10px;
 }
