@@ -68,3 +68,25 @@
   color: white;
   width: 80px;
 }
+
+.new-footer {
+  text-align: center;
+}
+
+.new-footer-roles {
+  display: flex;
+  justify-content: center;
+}
+
+.new-policy {
+  margin-right: 50px;
+}
+
+.new-role {
+  margin-left: 50px;
+}
+
+.new-footer-roles a {
+  color: black;
+  text-decoration: none;
+}
