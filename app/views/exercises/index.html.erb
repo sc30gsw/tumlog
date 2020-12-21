@@ -5,6 +5,7 @@
   <div class="category-sub">
     <p>〜Let's Exercise〜</p>
   </div>
+  <%= render 'shared/category_header' %>
   <div class="category-form">
     <%= render "shared/category_form" %>
     <%= form_with url: new_exercise_path, method: :get, local: true do |f| %>
@@ -21,7 +22,7 @@
     </select>
   </div>
 </div>
-<%= render "shared/category_index"%>
+
 <div class="habits">
   <div class="habit">
     <% @exercises.each do |exercise| %>

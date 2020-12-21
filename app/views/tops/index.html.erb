@@ -3,7 +3,7 @@
       <ul class="header-lists">
         <% if user_signed_in? %>
           <li class="header-user">
-            <%= link_to "#{current_user.nickname}", root_path, class: "header_user_name" %>さん
+            <%= link_to "#{current_user.nickname}", root_path, class: "header_user_name" %>
           </li>
           <li>
             <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "header-list" %>
