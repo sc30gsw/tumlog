@@ -3,8 +3,10 @@ class Mind < ApplicationRecord
   belongs_to :user
   has_one_attached :image
 
-  with_options presence: true do
-    validates :text
-    validates :user
+  validates :text, presence: true, unless: :was_attached?
+  validates :user, presence: true
+
+  def was_attached?
+    self.image.attached?
   end
 end
