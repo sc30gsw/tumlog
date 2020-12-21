@@ -6,7 +6,27 @@
     <p>〜Let's save money〜</p>
   </div>
   <div class="category-form">
-    <%= render "shared/category_form" %>
+    <%= render "shared/category_form"%>
+    <%= form_with url: new_saving_path, method: :get, local: true do |f| %>
+      <%= f.submit "投稿する", class: "habit-btn" %>
+    <% end %>
   </div>
 </div>
 <%= render "shared/category_index" %>
+<div class="habits">
+  <div class="habit">
+  <% @savings.each do |saving| %>
+    <div class="habit-user">
+      <b><%= saving.user.nickname %>さんの投稿</b>
+    </div>
+    <div class="habit-contents">
+      <div class="habit-text">
+         <%= simple_format(saving.text) %>
+       </div>
+       <div class="habit-image">
+         <%= image_tag saving.image.variant(resize: '500x500') if saving.image.attached? %>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>

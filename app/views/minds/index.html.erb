@@ -7,6 +7,26 @@
   </div>
   <div class="category-form">
     <%= render "shared/category_form" %>
+    <%= form_with url: new_mind_path, method: :get, local: true do |f| %>
+      <%= f.submit "投稿する", class: "habit-btn" %>
+    <% end %>
   </div>
 </div>
 <%= render "shared/category_index" %>
+<div class="habits">
+  <div class="habit">
+  <% @minds.each do |mind| %>
+    <div class="habit-user">
+      <b><%= mind.user.nickname %>さんの投稿</b>
+    </div>
+    <div class="habit-contents">
+      <div class="habit-text">
+        <%= simple_format(mind.text) %>
+      </div>
+      <div class="habit-image">
+        <%= image_tag mind.image.variant(resize: '500x500') if mind.image.attached? %>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>

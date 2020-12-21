@@ -5,10 +5,10 @@
 <div class="form-group">
   <h2 class="title">会員情報入力</h2>
 <% if notice %>
-  <p class="alert alert-notice"><%= notice %></p>
+  <p class="alert-notice"><%= notice %></p>
 <% end %>
 <% if alert %>
-  <p class="alert alert-error"><%= alert %></p>
+  <p class="alert-error"><%= alert %></p>
 <% end %>
   <%= form_with model: @user, url: user_session_path, method: :post, locale: true do |f| %>
     <div class="field">

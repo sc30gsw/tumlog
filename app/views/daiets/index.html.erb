@@ -7,6 +7,26 @@
   </div>
   <div class="category-form">
     <%= render "shared/category_form" %>
+    <%= form_with url: new_daiet_path, method: :get, local: true do |f| %>
+      <%= f.submit "投稿する", class: "habit-btn" %>
+    <% end %>
   </div>
 </div>
 <%= render "shared/category_index" %>
+<div class="habits">
+  <div class="habit">
+  <% @daiets.each do |daiet| %>
+    <div class="habit-user">
+      <b><%= daiet.user.nickname %>さんの投稿</b>
+    </div>
+    <div class="habit-contents">
+      <div class="habit-text">
+        <%= simple_format(daiet.text) %>
+      </div>
+      <div class="habit-image">
+        <%= image_tag exercise.image.variant(resize: '500x500') if daiet.image.attached? %>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>
