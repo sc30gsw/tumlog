@@ -7,6 +7,9 @@
   </div>
   <div class="category-form">
     <%= render "shared/category_form" %>
+    <%= form_with url: new_exercise_path, method: :get,local: true do |f| %>
+      <%= f.submit "投稿する", class: "habit-btn" %>
+    <% end %>
   </div>
 </div>
 <%= render "shared/category_index" %>
