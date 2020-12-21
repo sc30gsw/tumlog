@@ -245,6 +245,7 @@
 
 .company a {
   display: block;
+  text-decoration: none;
   color: white;
   margin-top: 10px;
 }
@@ -263,6 +264,7 @@
 
 .contact a {
   display: block;
+  text-decoration: none;
   color: white;
   margin-top: 10px;
 }
