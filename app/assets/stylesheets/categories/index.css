@@ -32,6 +32,15 @@
   color: black;
 }
 
+.habit-lists {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.habit-list {
+  padding: 10px;
+}
+
 .habit-btn {
   padding: 40px 20px;
   background-color: rgb(241, 76, 76);
