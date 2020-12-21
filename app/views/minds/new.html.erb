@@ -3,6 +3,9 @@
   <div class="new-habits-form">
     <div class="new-habit">
       <div class="new-title">
+        <div class="errors">
+          <%= render 'shared/error_messages', model: @mind, class: "error-message" %>
+        </div>
         <h1 class="new-form-title">投稿する</h1>
       </div>
       <%= form_with model: @mind, url: minds_path, method: :post, local: true do |f| %>        
