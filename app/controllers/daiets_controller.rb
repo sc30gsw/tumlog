@@ -1,5 +1,6 @@
 class DaietsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :daiet, only: [:show, :edit, :update]
 
   def index
     @daiets = Daiet.all
@@ -20,12 +21,21 @@ class DaietsController < ApplicationController
   end
 
   def show
-    @daiet = Daiet.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
   end
 
   private
 
   def daiet_params
     params.require(:daiet).permit(:text, :image).merge(user_id: current_user.id)
+  end
+
+  def daiet
+    @daiet = Daiet.find(params[:id])
   end
 end
