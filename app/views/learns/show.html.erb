@@ -31,7 +31,7 @@
       <%= image_tag @learn.image.variant(resize: '330x330') if @learn.image.attached? %>
     </div>
     <div class="show-user">
-      投稿者：<b><%= link_to @learn.user.nickname, "#", class: "show_user_page" %></b>
+      投稿者：<b><%= link_to @learn.user.nickname, user_path(@learn.user_id), class: "show_user_page" %></b>
     </div> 
     <%#いいねボタン(予定)%>
   </div>

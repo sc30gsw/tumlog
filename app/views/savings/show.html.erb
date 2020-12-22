@@ -31,7 +31,7 @@
       <%= image_tag @saving.image.variant(resize: '330x330') if @saving.image.attached? %>
     </div>
     <div class="show-user">
-      投稿者：<b><%= link_to @saving.user.nickname, "#", class: "show_user_page" %></b>
+      投稿者：<b><%= link_to @saving.user.nickname, user_path(@saving.user_id), class: "show_user_page" %></b>
     </div> 
     <%#いいねボタン(予定)%>
   </div>

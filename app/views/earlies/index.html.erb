@@ -27,7 +27,7 @@
   <div class="habit">
   <% @earlies.each do |early| %>
     <div class="habit-user">
-      <b><%= early.user.nickname %>さんの積み上げ</b>
+      <b><%= link_to early.user.nickname, user_path(early.user_id), class: "habit_user_link" %>さんの積み上げ</b>
     </div>
     <%= link_to early_path(early.id), class: "habit_link" do%>
       <div class="habit-contents">

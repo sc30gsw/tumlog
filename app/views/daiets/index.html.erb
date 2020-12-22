@@ -5,7 +5,8 @@
   <div class="category-sub">
     <p>〜Let's Daiet〜</p>
   </div>
-  <%= render 'shared/category_header' %>
+ <%= link_to image_tag("logo.png", class: "header-image", height: "80", width: "200", alt: "積みログ"), root_path %> 
+ <%= render 'shared/category_header' %>
   <div class="category-form">
     <%= render "shared/category_form" %>
     <%= form_with url: new_daiet_path, method: :get, local: true do |f| %>
@@ -27,7 +28,7 @@
   <div class="habit">
   <% @daiets.each do |daiet| %>
     <div class="habit-user">
-      <b><%= daiet.user.nickname %>さんの積み上げ</b>
+      <b><%= link_to daiet.user.nickname, user_path(daiet.user_id), class: "habit_user_link" %>さんの積み上げ</b>
     </div>
     <%= link_to daiet_path(daiet.id), class: "habit_link" do %>
       <div class="habit-contents">

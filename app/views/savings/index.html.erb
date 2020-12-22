@@ -27,7 +27,7 @@
   <div class="habit">
   <% @savings.each do |saving| %>
     <div class="habit-user">
-      <b><%= saving.user.nickname %>さんの積み上げ</b>
+      <b><%= link_to saving.user.nickname, user_path(saving.user_id), class: "habit_user_link" %>さんの積み上げ</b>
     </div>
     <%= link_to saving_path(saving.id), class: "habit_link" do %>
       <div class="habit-contents">
