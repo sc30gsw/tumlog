@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'tops#index'
   resources :exercises
   resources :daiets
+  resources :learns
   resources :savings
   resources :minds
   resources :earlies
