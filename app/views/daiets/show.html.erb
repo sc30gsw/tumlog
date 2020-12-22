@@ -18,7 +18,7 @@
 <% if user_signed_in? && current_user.id == @daiet.user_id%>
   <div class="habit-manage">
     <%= link_to "編集する", edit_daiet_path(@daiet.id), class: "habit_btn" %>
-    <%= link_to "削除する", root_path, class: "habit_btn" %>
+    <%= link_to "削除する", daiet_path(@daiet.id), mehtod: :delete, class: "habit_btn" %>
   </div>
 <% end %>
 
