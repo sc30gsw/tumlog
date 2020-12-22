@@ -1,6 +1,6 @@
 <div class="category-header">
   <div class="category-title">
-    <h1>マインドフルネス瞑想</h1>
+    <h1>瞑想</h1>
   </div>
   <div class="category-sub">
     <p>〜Let's meditation〜</p>
@@ -29,14 +29,16 @@
     <div class="habit-user">
       <b><%= mind.user.nickname %>さんの積み上げ</b>
     </div>
-    <div class="habit-contents">
-      <div class="habit-text">
-        <%= simple_format(mind.text) %>
+    <%= link_to mind_path(mind.id), class: "habit_link" do %>
+      <div class="habit-contents">
+        <div class="habit-text">
+          <%= simple_format(mind.text) %>
+        </div>
+        <div class="habit-image">
+          <%= image_tag mind.image.variant(resize: '500x500') if mind.image.attached? %>
+        </div>
       </div>
-      <div class="habit-image">
-        <%= image_tag mind.image.variant(resize: '500x500') if mind.image.attached? %>
-      </div>
-    </div>
+    <% end %>
   <% end %>
   </div>
 </div>

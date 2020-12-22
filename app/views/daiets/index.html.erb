@@ -1,6 +1,6 @@
 <div class="category-header">
   <div class="category-title">
-    <h1>ダイエット(体重管理)</h1>
+    <h1>ダイエット</h1>
   </div>
   <div class="category-sub">
     <p>〜Let's Daiet〜</p>
@@ -18,7 +18,7 @@
       <option value=<%= exercises_path %>>運動</option>
       <option value=<%= learns_path %>>勉強</option>
       <option value=<%= savings_path %>>節約</option>
-      <option value=<%= minds_path%>>マインドフルネス瞑想</option>
+      <option value=<%= minds_path%>>瞑想</option>
       <option value=<%= earlies_path %>>早起き</option>
     </select>
   </div>
@@ -29,14 +29,16 @@
     <div class="habit-user">
       <b><%= daiet.user.nickname %>さんの積み上げ</b>
     </div>
-    <div class="habit-contents">
-      <div class="habit-text">
-        <%= simple_format(daiet.text) %>
+    <%= link_to daiet_path(daiet.id), class: "habit_link" do %>
+      <div class="habit-contents">
+        <div class="habit-text">
+          <%= simple_format(daiet.text) %>
+        </div>
+        <div class="habit-image">
+          <%= image_tag exercise.image.variant(resize: '500x500') if daiet.image.attached? %>
+        </div>
       </div>
-      <div class="habit-image">
-        <%= image_tag exercise.image.variant(resize: '500x500') if daiet.image.attached? %>
-      </div>
-    </div>
+    <% end %>
   <% end %>
   </div>
 </div>
