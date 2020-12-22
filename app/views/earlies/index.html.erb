@@ -19,7 +19,7 @@
       <option value=<%= daiets_path %>>ダイエット</option>
       <option value=<%= learns_path %>>勉強</option>
       <option value=<%= savings_path %>>節約</option>
-      <option value=<%= minds_path%>>マインドフルネス瞑想</option>
+      <option value=<%= minds_path%>>瞑想</option>
     </select>
   </div>
 </div>
@@ -29,14 +29,16 @@
     <div class="habit-user">
       <b><%= early.user.nickname %>さんの積み上げ</b>
     </div>
-    <div class="habit-contents">
-      <div class="habit-text">
-        <%= simple_format(early.text) %>
+    <%= link_to early_path(early.id), class: "habit_link" do%>
+      <div class="habit-contents">
+        <div class="habit-text">
+          <%= simple_format(early.text) %>
+        </div>
+        <div class="habit-image">
+          <%= image_tag early.image.variant(resize: '500x500') if early.image.attached? %>
+        </div>
       </div>
-      <div class="habit-image">
-       <%= image_tag early.image.variant(resize: '500x500') if early.image.attached? %>
-      </div>
-    </div>
+    <% end %>
   <% end %>
   </div>
 </div>

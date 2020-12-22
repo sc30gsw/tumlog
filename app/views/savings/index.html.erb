@@ -18,7 +18,7 @@
       <option value=<%= exercises_path %>>運動</option>
       <option value=<%= daiets_path %>>ダイエット</option>
       <option value=<%= learns_path %>>勉強</option>
-      <option value=<%= minds_path%>>マインドフルネス瞑想</option>
+      <option value=<%= minds_path%>>瞑想</option>
       <option value=<%= earlies_path %>>早起き</option>
     </select>
   </div>
@@ -29,14 +29,16 @@
     <div class="habit-user">
       <b><%= saving.user.nickname %>さんの積み上げ</b>
     </div>
-    <div class="habit-contents">
-      <div class="habit-text">
-         <%= simple_format(saving.text) %>
-       </div>
-       <div class="habit-image">
-         <%= image_tag saving.image.variant(resize: '500x500') if saving.image.attached? %>
+    <%= link_to saving_path(saving.id), class: "habit_link" do %>
+      <div class="habit-contents">
+        <div class="habit-text">
+          <%= simple_format(saving.text) %>
+        </div>
+        <div class="habit-image">
+          <%= image_tag saving.image.variant(resize: '500x500') if saving.image.attached? %>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
   </div>
 </div>
