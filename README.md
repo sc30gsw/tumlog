@@ -14,7 +14,7 @@
 
 - has_many :exercises
 - has_many :daiets
-- has_many :learns
+- has_many :larns
 - has_many :savings
 - has_many :minds
 - has_many :comments
@@ -78,6 +78,18 @@
 ### Association
 
 - has_many :mind_commetns
+- belongs_to :user
+
+## earliesテーブル
+
+| Column | Type       | Options                        | 
+| ------ | ---------- | ------------------------------ |
+| text   | text       | null: false                    |
+| user   | references | null: false, foreign_key: ture |
+
+### Association
+
+- has_many :early_comments
 - belongs_to :user
 
 ## exercise_commentsテーブル
@@ -144,6 +156,19 @@
 
 - belongs_to :user
 - belongs_to :mind
+
+## early_commentsテーブル
+
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| content | string     | null: false                    |
+| user    | references | null: false, foreign_key: true |
+| early   | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :early
 
 
 # Tumilog 概要
