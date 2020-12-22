@@ -66,14 +66,14 @@
 .habit_user_name {
   text-decoration: none;
   color: black;
-  font-size: 15px;
+  font-size: 18px;
   padding-right: 10px;
 }
 
 .habit_user_delete {
   text-decoration: none;
   color: black;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 .habits {
