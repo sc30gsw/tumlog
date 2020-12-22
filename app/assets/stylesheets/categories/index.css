@@ -59,21 +59,21 @@
 
 .habit-current-user {
   position: absolute;
-  top: 70px;
-  right: 80px;
+  top: 10px;
+  right: 30px;
 }
 
 .habit_user_name {
   text-decoration: none;
   color: black;
-  font-size: 20px;
+  font-size: 15px;
   padding-right: 10px;
 }
 
 .habit_user_delete {
   text-decoration: none;
   color: black;
-  font-size: 17px;
+  font-size: 15px;
 }
 
 .habits {
