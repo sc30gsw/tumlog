@@ -20,7 +20,7 @@ class ExercisesController < ApplicationController
   end
 
   def show
-    @exersice = Exercise.find(params[:id])
+    @exercise = Exercise.find(params[:id])
   end
 
   private
