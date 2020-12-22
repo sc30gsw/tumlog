@@ -1,2 +1,53 @@
-<h1>Earlies#show</h1>
-<p>Find me in app/views/earlies/show.html.erb</p>
+<div class="show-header">
+  <%= link_to image_tag("logo.png", class: "header-image", height: "80", width: "200", alt: "積みログ"), earlies_path %> 
+  <div class="show-header-user">
+    <% if user_signed_in? %>
+      <div class="show-current-user">
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "show_user_delete" %>
+        <%= link_to "投稿する", new_early_path , class: "show_new_habit" %>
+      </div>
+    <% else %>
+      <div class="show-logout-user">
+        <%= link_to "ログイン", new_user_session_path, class: "show_user_session" %>
+        <%= link_to "新規登録", new_user_registration_path, class: "show_user_new" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="show-habits">
+  <div class="show-habit">
+    <div class="show-text">
+      <%= simple_format(@early.text) %>
+    </div> 
+    <div class="show-image"> 
+      <%= image_tag @early.image.variant(resize: '330x330') if @early.image.attached? %>
+    </div>
+    <div class="show-user">
+      投稿者：<b><%= link_to @early.user.nickname, "#", class: "show_user_page" %></b>
+    </div> 
+    <%#いいねボタン(予定)%>
+  </div>
+</div>
+<div class="show-footer">
+  <div class="comments">
+    <div class="comment-form">
+      <h1 class="comment-title">コメントする</h1>
+      <input type="text-filed" class="comment-field">
+      <input type="submit" value="送信する" class="comment-btn">
+      <div class="comment">
+        <span class="comment-text">あいうえお</span>
+        <%#コメント一覧%>
+        <div class="comment-user">
+          <%#コメントしたユーザー%>
+        </div>
+      </div>
+      <div class="comment">
+        <span class="comment-text">あいうえお</span>
+        <%#コメント一覧%>
+        <div class="comment-user">
+          <%#コメントしたユーザー%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

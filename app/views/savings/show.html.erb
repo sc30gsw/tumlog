@@ -1,10 +1,10 @@
 <div class="show-header">
-  <%= link_to image_tag("logo.png", class: "header-image", height: "80", width: "200", alt: "積みログ"), exercises_path %> 
+  <%= link_to image_tag("logo.png", class: "header-image", height: "80", width: "200", alt: "積みログ"), savings_path %> 
   <div class="show-header-user">
     <% if user_signed_in? %>
       <div class="show-current-user">
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "show_user_delete" %>
-        <%= link_to "投稿する", new_exercise_path , class: "show_new_habit" %>
+        <%= link_to "投稿する", new_saving_path , class: "show_new_habit" %>
       </div>
     <% else %>
       <div class="show-logout-user">
@@ -17,13 +17,13 @@
 <div class="show-habits">
   <div class="show-habit">
     <div class="show-text">
-      <%= simple_format(@exercise.text) %>
+      <%= simple_format(@saving.text) %>
     </div> 
     <div class="show-image"> 
-      <%= image_tag @exercise.image.variant(resize: '330x330') if @exercise.image.attached? %>
+      <%= image_tag @saving.image.variant(resize: '330x330') if @saving.image.attached? %>
     </div>
     <div class="show-user">
-      投稿者：<b><%= link_to @exercise.user.nickname, "#", class: "show_user_page" %></b>
+      投稿者：<b><%= link_to @saving.user.nickname, "#", class: "show_user_page" %></b>
     </div> 
     <%#いいねボタン(予定)%>
   </div>
