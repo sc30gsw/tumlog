@@ -11,7 +11,7 @@ class EarliesController < ApplicationController
   
   def create
     @early = Early.new(early_params)
-    if @early.vali?
+    if @early.valid?
       @early.save
       redirect_to action: :index
     else
