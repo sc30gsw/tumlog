@@ -27,6 +27,11 @@ class MindsController < ApplicationController
   end
 
   def update
+    if @mind.update(mind_params)
+      redirect_to action: :show
+    else
+      render :edit
+    end
   end
 
   private

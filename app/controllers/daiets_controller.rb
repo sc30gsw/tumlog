@@ -27,6 +27,11 @@ class DaietsController < ApplicationController
   end
 
   def update
+    if @daiet.update(daiet_params)
+      redirect_to action: :show
+    else
+      render :edit
+    end
   end
 
   private

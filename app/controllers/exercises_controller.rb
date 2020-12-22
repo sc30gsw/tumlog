@@ -27,6 +27,11 @@ class ExercisesController < ApplicationController
   end
 
   def update
+    if @exercise.update(exercise_params)
+      redirect_to action: :show
+    else
+      render :edit
+    end
   end
 
   private

@@ -27,6 +27,11 @@ class SavingsController < ApplicationController
   end
 
   def update
+    if @saving.update(saving_params)
+      redirect_to action: :show
+    else
+      render :edit
+    end
   end
   
   private

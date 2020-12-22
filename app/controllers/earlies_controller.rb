@@ -27,6 +27,11 @@ class EarliesController < ApplicationController
   end
 
   def update
+    if @early.update(early_params)
+      redirect_to action: :show
+    else
+      render :edit
+    end
   end
 
   private
@@ -36,6 +41,6 @@ class EarliesController < ApplicationController
   end
 
   def early
-    @early = Early.find(prams[:id])
+    @early = Early.find(params[:id])
   end
 end

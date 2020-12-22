@@ -23,6 +23,17 @@ class LearnsController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def update
+    if @learn.update(learn_params)
+      redirect_to action: :show
+    else
+      render :edit
+    end
+  end
+
   private
 
   def learn_params
@@ -30,6 +41,6 @@ class LearnsController < ApplicationController
   end
 
   def learn
-    @learn = Learn.find(prams[:id])
+    @learn = Learn.find(params[:id])
   end
 end
