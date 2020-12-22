@@ -1,6 +1,6 @@
 class DaietsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :daiet, only: [:show, :edit, :update]
+  before_action :daiet, only: [:show, :edit, :update, :destroy]
 
   def index
     @daiets = Daiet.all
@@ -24,6 +24,9 @@ class DaietsController < ApplicationController
   end
 
   def edit
+    unless current_user.id == @daiet.user_id
+      redirect_to action: :index
+    end
   end
 
   def update
@@ -31,6 +34,14 @@ class DaietsController < ApplicationController
       redirect_to action: :show
     else
       render :edit
+    end
+  end
+
+  def destroy
+    if @daiet.destroy
+      redirect_to action: :index
+    else
+      render :show
     end
   end
 

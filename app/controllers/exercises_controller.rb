@@ -1,6 +1,6 @@
 class ExercisesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :exercise, only: [:show, :edit, :update]
+  before_action :exercise, only: [:show, :edit, :update, :destroy]
 
   def index
     @exercises = Exercise.all
@@ -24,6 +24,9 @@ class ExercisesController < ApplicationController
   end
 
   def edit
+    unless current_user.id == @exercise.user_id
+      redirect_to action: :index
+    end
   end
 
   def update
@@ -31,6 +34,14 @@ class ExercisesController < ApplicationController
       redirect_to action: :show
     else
       render :edit
+    end
+  end
+
+  def destroy
+    if @exercise.destroy
+      redirect_to action: :index
+    else
+      render :show
     end
   end
 

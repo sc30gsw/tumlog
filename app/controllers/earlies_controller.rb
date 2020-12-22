@@ -1,6 +1,6 @@
 class EarliesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :early, only: [:show, :edit, :update]
+  before_action :early, only: [:show, :edit, :update, :destroy]
 
   def index
     @earlies = Early.all
@@ -24,6 +24,9 @@ class EarliesController < ApplicationController
   end
 
   def edit
+    unless current_user.id == @early.user_id
+      redirect_to action: :index
+    end
   end
 
   def update
@@ -31,6 +34,14 @@ class EarliesController < ApplicationController
       redirect_to action: :show
     else
       render :edit
+    end
+  end
+
+  def destroy
+    if @early.destroy
+      redirect_to action: :index
+    else
+      render :show
     end
   end
 

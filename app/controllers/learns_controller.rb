@@ -1,6 +1,6 @@
 class LearnsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :learn, only: [:show, :edit, :update]
+  before_action :learn, only: [:show, :edit, :update, :destroy]
 
   def index
     @learns = Learn.all
@@ -24,6 +24,9 @@ class LearnsController < ApplicationController
   end
 
   def edit
+    unless current_user.id == @learn.user_id
+      redirect_to action: :index
+    end
   end
 
   def update
@@ -31,6 +34,14 @@ class LearnsController < ApplicationController
       redirect_to action: :show
     else
       render :edit
+    end
+  end
+
+  def destroy
+    if @learn.destroy
+      redirect_to action: :index
+    else
+      render :show
     end
   end
 

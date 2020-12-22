@@ -1,6 +1,6 @@
 class MindsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :mind, only: [:show, :edit, :update]
+  before_action :mind, only: [:show, :edit, :update, :destroy]
   
   def index
     @minds = Mind.all
@@ -24,6 +24,9 @@ class MindsController < ApplicationController
   end
   
   def edit
+    unless current_user.id == @mind.user_id
+      redirect_to action: :index
+    end
   end
 
   def update
@@ -31,6 +34,14 @@ class MindsController < ApplicationController
       redirect_to action: :show
     else
       render :edit
+    end
+  end
+
+  def destroy
+    if @mind.destroy
+      redirect_to action: :index
+    else
+      render :show
     end
   end
 
