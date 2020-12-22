@@ -3,7 +3,7 @@ class MindsController < ApplicationController
   before_action :mind, only: [:show, :edit, :update, :destroy]
   
   def index
-    @minds = Mind.all
+    @minds = Mind.all.order(id: "DESC")
   end
 
   def new

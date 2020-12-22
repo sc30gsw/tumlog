@@ -3,7 +3,7 @@ class SavingsController < ApplicationController
   before_action :saving, only: [:show, :edit, :update, :destroy]
 
   def index
-    @savings = Saving.all
+    @savings = Saving.all.order(id: "DESC")
   end
 
   def new

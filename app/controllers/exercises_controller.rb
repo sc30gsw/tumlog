@@ -3,7 +3,7 @@ class ExercisesController < ApplicationController
   before_action :exercise, only: [:show, :edit, :update, :destroy]
 
   def index
-    @exercises = Exercise.all
+    @exercises = Exercise.all.order(id: "DESC")
   end
 
   def new

@@ -3,7 +3,7 @@ class LearnsController < ApplicationController
   before_action :learn, only: [:show, :edit, :update, :destroy]
 
   def index
-    @learns = Learn.all
+    @learns = Learn.all.order(id: "DESC")
   end
 
   def new

@@ -3,7 +3,7 @@ class DaietsController < ApplicationController
   before_action :daiet, only: [:show, :edit, :update, :destroy]
 
   def index
-    @daiets = Daiet.all
+    @daiets = Daiet.all.order(id: "DESC")
   end
 
   def new

@@ -3,7 +3,7 @@ class EarliesController < ApplicationController
   before_action :early, only: [:show, :edit, :update, :destroy]
 
   def index
-    @earlies = Early.all
+    @earlies = Early.all.order(id: "DESC")
   end
 
   def new
