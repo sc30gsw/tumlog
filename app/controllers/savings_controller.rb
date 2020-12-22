@@ -1,5 +1,6 @@
 class SavingsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :saving, only: [:show, :edit, :update]
 
   def index
     @savings = Saving.all
@@ -20,12 +21,26 @@ class SavingsController < ApplicationController
   end
 
   def show
-    @saving = Saving.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @saving.update(saving_params)
+      redirect_to action: :show
+    else
+      render :edit
+    end
   end
   
   private
 
   def saving_params
     params.require(:saving).permit(:text, :image).merge(user_id: current_user.id)
+  end
+
+  def saving
+    @saving = Saving.find(params[:id])
   end
 end

@@ -4,22 +4,11 @@
     <div class="new-habit">
       <div class="new-title">
         <div class="errors">
-          <%= render 'shared/error_messages', model: @early, class: "error-message" %>
+          <%= render 'shared/error_messages', model: @early, class: "error_messages" %>
         </div>
         <h1 class="new-form-title">投稿する</h1>
       </div>
-      <%= form_with model: @early, url: earlies_path, method: :post, local: true do |f| %>        
-        <div class="new-habit-text">
-         <%= f.text_area :text, atuofocus: true, rows: 10, placeholder: "今日積み上げた習慣など投稿してみよう！", class: "new-text" %>
-        </div>
-        <div class="new-habit-btn">
-          <div class="new-habit-image">
-            <span class="image-file"><%= f.label :image, '画像' %></span>
-            <%= f.file_field :image, class: "hidden_image" %>
-          </div>
-          <%= f.submit '投稿する', class: "habit-submit" %>
-        </div>
-      <% end %>
+      <%= render partial: 'habit_form', locals:{ early: @early} %>
     </div>
   </div>
 </div>

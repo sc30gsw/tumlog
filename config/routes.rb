@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   get 'earlies/show'
   devise_for :users
   root to: 'tops#index'
-  resources :exercises, only: [:index, :new, :create, :show] 
-  resources :daiets, only: [:index, :new, :create, :show]
-  resources :learns, only: [:index, :new, :create, :show]
-  resources :savings, only: [:index, :new, :create, :show]
-  resources :minds, only: [:index, :new, :create, :show]
-  resources :earlies, only: [:index, :new, :create, :show]
+  resources :exercises, only: [:index, :new, :create, :show, :edit, :update] 
+  resources :daiets, only: [:index, :new, :create, :show, :edit, :update]
+  resources :learns, only: [:index, :new, :create, :show, :edit, :update]
+  resources :savings, only: [:index, :new, :create, :show, :edit, :update]
+  resources :minds, only: [:index, :new, :create, :show, :edit, :update]
+  resources :earlies, only: [:index, :new, :create, :show, :edit, :update]
 end

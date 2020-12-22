@@ -1,5 +1,6 @@
 class LearnsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :learn, only: [:show, :edit, :update]
 
   def index
     @learns = Learn.all
@@ -20,12 +21,26 @@ class LearnsController < ApplicationController
   end
 
   def show
-    @learn = Learn.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @learn.update(learn_params)
+      redirect_to action: :show
+    else
+      render :edit
+    end
   end
 
   private
 
   def learn_params
     params.require(:learn).permit(:text, :image).merge(user_id: current_user.id)
+  end
+
+  def learn
+    @learn = Learn.find(params[:id])
   end
 end

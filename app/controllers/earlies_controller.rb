@@ -1,5 +1,6 @@
 class EarliesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :early, only: [:show, :edit, :update]
 
   def index
     @earlies = Early.all
@@ -20,12 +21,26 @@ class EarliesController < ApplicationController
   end
 
   def show
-    @early = Early.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @early.update(early_params)
+      redirect_to action: :show
+    else
+      render :edit
+    end
   end
 
   private
 
   def early_params
     params.require(:early).permit(:text, :image).merge(user_id: current_user.id)
+  end
+
+  def early
+    @early = Early.find(params[:id])
   end
 end

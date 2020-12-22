@@ -4,13 +4,13 @@
     <div class="new-habit">
       <div class="new-title">
         <div class="errors">
-          <%= render 'shared/error_messages', model: @saving, class: "error_messages" %>
+          <%= render 'shared/error_messages', model: @early, class: "error_messages" %>
         </div>
         <h1 class="new-form-title">投稿する</h1>
       </div>
-      <%= render partial 'habti_form', locals: { mind: @saving } %>
+      <%= render partial: 'habit_form', locals:{early: @early} %>
     </div>
   </div>
 </div>
-<%= link_to image_tag("logo.png", class: "header-image", height: "80", width: "200", alt: "積みログ"), savings_path %> 
+<%= link_to image_tag("logo.png", class: "header-image", height: "80", width: "200", alt: "積みログ"), early_path(@early.id) %> 
 <%= render 'shared/new_footer' %>
