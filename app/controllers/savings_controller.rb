@@ -24,6 +24,9 @@ class SavingsController < ApplicationController
   end
 
   def edit
+    unless current_user.id == @saving.user_id
+      redirect_to action: :index
+    end
   end
 
   def update

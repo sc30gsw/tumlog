@@ -24,6 +24,9 @@ class MindsController < ApplicationController
   end
   
   def edit
+    unless current_user.id == @mind.user_id
+      redirect_to action: :index
+    end
   end
 
   def update
