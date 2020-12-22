@@ -33,6 +33,23 @@
   color: black;
 }
 
+.habit-manage {
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+}
+
+.habit_btn {
+  display: block;
+  border-radius: 10%;
+  border: 1px solid rgb(180, 179, 179);
+  background-color: rgb(235, 76, 76);
+  color: white;
+  text-decoration: none;
+  padding: 5px;
+  margin: 0 10px;
+}
+
 .show-habits {
   height: calc(100vh - 100px - 350px);
   padding-top: 50px;
@@ -40,7 +57,7 @@
 }
 
 .show-text {
- font-size: 25px;
+ font-size: 22px;
  font-weight: bold; 
 }
 

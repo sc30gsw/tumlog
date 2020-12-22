@@ -14,6 +14,12 @@
     <% end %>
   </div>
 </div>
+
+<div class="habit-manage">
+   <%= link_to "編集する", edit_early_path(@early.id), class: "habit_btn" %>
+   <%= link_to "削除する", root_path, class: "habit_btn" %>
+</div>
+
 <div class="show-habits">
   <div class="show-habit">
     <div class="show-text">
