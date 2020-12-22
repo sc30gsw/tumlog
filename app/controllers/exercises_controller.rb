@@ -34,6 +34,9 @@ class ExercisesController < ApplicationController
     end
   end
 
+  def destroy
+  end
+
   private
 
   def exercise_params

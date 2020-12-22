@@ -34,6 +34,9 @@ class LearnsController < ApplicationController
     end
   end
 
+  def destroy
+  end
+
   private
 
   def learn_params

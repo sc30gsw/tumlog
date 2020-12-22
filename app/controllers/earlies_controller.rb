@@ -34,6 +34,9 @@ class EarliesController < ApplicationController
     end
   end
 
+  def destroy
+  end
+
   private
 
   def early_params

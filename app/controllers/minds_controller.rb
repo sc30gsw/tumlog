@@ -34,6 +34,9 @@ class MindsController < ApplicationController
     end
   end
 
+  def destroy
+  end
+
   private
 
   def mind_params
