@@ -2,6 +2,6 @@
 
 <% if user_signed_in? %>
   <div class="room-user">
-    ようこそ、<br><%= link_to current_user.nickname, root_path, class: "room_user_name" %>さん
+    <br><%= link_to current_user.nickname, root_path, class: "room_user_name" %>
   </div>
 <% end %>

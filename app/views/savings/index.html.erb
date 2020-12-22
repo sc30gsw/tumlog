@@ -5,6 +5,7 @@
   <div class="category-sub">
     <p>〜Let's save money〜</p>
   </div>
+  <%= render 'shared/category_header' %>
   <div class="category-form">
     <%= render "shared/category_form"%>
     <%= form_with url: new_saving_path, method: :get, local: true do |f| %>
@@ -18,15 +19,15 @@
       <option value=<%= daiets_path %>>ダイエット(体重管理)</option>
       <option value=<%= learns_path %>>勉強</option>
       <option value=<%= minds_path%>>マインドフルネス瞑想</option>
+      <option value=<%= savings_path %>>早起き</option>
     </select>
   </div>
 </div>
-<%= render "shared/category_index" %>
 <div class="habits">
   <div class="habit">
   <% @savings.each do |saving| %>
     <div class="habit-user">
-      <b><%= saving.user.nickname %>さんの投稿</b>
+      <b><%= saving.user.nickname %>さんの積み上げ</b>
     </div>
     <div class="habit-contents">
       <div class="habit-text">

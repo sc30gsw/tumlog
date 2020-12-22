@@ -1,5 +1,5 @@
 class LearnsController < ApplicationController
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @learns = Learn.all
@@ -17,6 +17,10 @@ class LearnsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @learn = Learn.find(params[:id])
   end
 
   private

@@ -1,5 +1,5 @@
 class SavingsController < ApplicationController
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @savings = Saving.all
@@ -17,6 +17,10 @@ class SavingsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @saving = Saving.find(params[:id])
   end
   
   private

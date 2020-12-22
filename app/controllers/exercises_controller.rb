@@ -1,5 +1,5 @@
 class ExercisesController < ApplicationController
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @exercises = Exercise.all
@@ -17,6 +17,10 @@ class ExercisesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @exercise = Exercise.find(params[:id])
   end
 
   private

@@ -1,5 +1,5 @@
 class MindsController < ApplicationController
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @minds = Mind.all
@@ -19,6 +19,10 @@ class MindsController < ApplicationController
     end
   end
 
+  def show
+    @mind = Mind.find(params[:id])
+  end
+  
   private
 
   def mind_params
