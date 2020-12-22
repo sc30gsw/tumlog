@@ -1,6 +1,6 @@
 class MindsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :mind, only: [:show, :edit, :update]
+  before_action :mind, only: [:show, :edit, :update, :destroy]
   
   def index
     @minds = Mind.all
@@ -35,6 +35,11 @@ class MindsController < ApplicationController
   end
 
   def destroy
+    if @mind.destroy
+      redirect_to action: :index
+    else
+      render :show
+    end
   end
 
   private

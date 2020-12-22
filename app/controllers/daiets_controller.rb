@@ -1,6 +1,6 @@
 class DaietsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :daiet, only: [:show, :edit, :update]
+  before_action :daiet, only: [:show, :edit, :update, :destroy]
 
   def index
     @daiets = Daiet.all
@@ -35,6 +35,11 @@ class DaietsController < ApplicationController
   end
 
   def destroy
+    if @daiet.destroy
+      redirect_to action: :index
+    else
+      render :show
+    end
   end
 
   private

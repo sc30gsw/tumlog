@@ -1,6 +1,6 @@
 class SavingsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :saving, only: [:show, :edit, :update]
+  before_action :saving, only: [:show, :edit, :update, :destroy]
 
   def index
     @savings = Saving.all
@@ -35,6 +35,11 @@ class SavingsController < ApplicationController
   end
 
   def destroy
+    if @saving.destroy
+      redirect_to action: :index
+    else
+      render :show
+    end
   end
   
   private

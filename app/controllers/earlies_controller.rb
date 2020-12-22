@@ -1,6 +1,6 @@
 class EarliesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :early, only: [:show, :edit, :update]
+  before_action :early, only: [:show, :edit, :update, :destroy]
 
   def index
     @earlies = Early.all
@@ -35,6 +35,11 @@ class EarliesController < ApplicationController
   end
 
   def destroy
+    if @early.destroy
+      redirect_to action: :index
+    else
+      render :show
+    end
   end
 
   private
