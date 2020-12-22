@@ -19,6 +19,7 @@
       <option value=<%= learns_path %>>勉強</option>
       <option value=<%= savings_path %>>節約</option>
       <option value=<%= minds_path%>>マインドフルネス瞑想</option>
+      <option value=<%= savings_path %>>早起き</option>
     </select>
   </div>
 </div>
@@ -27,7 +28,7 @@
   <div class="habit">
     <% @exercises.each do |exercise| %>
       <div class="habit-user">
-        <b><%= exercise.user.nickname %>さんの投稿</b>
+        <b><%= exercise.user.nickname %>さんの積み上げ</b>
       </div>
       <%= link_to exercise_path(exercise.id), class: "habit_link" do%>
         <div class="habit-contents">

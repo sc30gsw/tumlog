@@ -19,6 +19,7 @@
       <option value=<%= daiets_path %>>ダイエット(体重管理)</option>
       <option value=<%= savings_path %>>節約</option>
       <option value=<%= minds_path%>>マインドフルネス瞑想</option>
+      <option value=<%= savings_path %>>早起き</option>
     </select>
   </div>
 </div>
@@ -26,7 +27,7 @@
   <div class="habit">
   <% @learns.each do |learn| %>
     <div class="habit-user">
-      <b><%= learn.user.nickname %>さんの投稿</b>
+      <b><%= learn.user.nickname %>さんの積み上げ</b>
     </div>
     <div class="habit-contents">
       <div class="habit-text">

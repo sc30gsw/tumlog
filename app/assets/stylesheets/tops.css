@@ -159,7 +159,8 @@
 }
 
 .category-titles h2 {
-  margin: 20px 90px 0;
+  margin: 20px 86px 0;
+  font-weight: bold;
 }
 
 .categories {
@@ -174,7 +175,8 @@
 }
 
 .category-titles-under h2 {
-  margin: 20px 97px 0;
+  margin: 20px 96px 0;
+  font-weight: bold;
 }
 
 .categories-under {
