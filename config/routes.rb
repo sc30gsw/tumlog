@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :savings
   resources :minds
   resources :earlies
+  resources :users, only: :show
 end

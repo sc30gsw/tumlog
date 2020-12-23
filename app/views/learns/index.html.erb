@@ -27,7 +27,7 @@
   <div class="habit">
   <% @learns.each do |learn| %>
     <div class="habit-user">
-      <b><%= learn.user.nickname %>さんの積み上げ</b>
+      <b><%= link_to learn.user.nickname, user_path(learn.user_id), class: "habit_user_link" %>さんの積み上げ</b>
     </div>
     <%= link_to learn_path(learn.id), class: "habit_link" do %>
       <div class="habit-contents">
@@ -36,6 +36,9 @@
         </div>
         <div class="habit-image">
           <%= image_tag learn.image.variant(resize: '500x500') if learn.image.attached? %>
+        </div>
+        <div class="habit-time">
+          <%= learn.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
         </div>
       </div>
     <% end %>

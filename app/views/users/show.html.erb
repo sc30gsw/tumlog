@@ -1,0 +1,141 @@
+
+<div class="mypage-header">
+  <%= link_to image_tag("logo.png", class: "header-image", height: "80", width: "200", alt: "積みログ"), daiets_path %> 
+  <div class="mypage-user-header">
+    <div class="mypage-user">
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "show_user_delete" %>
+      <select onChange="location.href=value;" class="header-list">
+        <option>カテゴリーを選択してください</option>
+        <option value=<%= exercises_path %>>運動</option>
+        <option value=<%= daiets_path %>>ダイエット</option>
+        <option value=<%= learns_path %>>勉強</option>
+        <option value=<%= savings_path %>>節約</option>
+        <option value=<%= minds_path%>>瞑想</option>
+        <option value=<%= earlies_path %>>早起き</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<div class="mypage-main">
+  <div class="mypage-profile">
+    <h2><%= "#{@user.nickname}さんのページ" %></h2>
+    <p class="profile"><b>プロフィール</b></p>
+      <%= @user.profile%>
+  </div>
+  <div class="mypage-habit">
+    <h2 class="mypage-habit-title">運動</h2>
+    <% @exercises.each do |exercise| %>
+    <div class="mypage-exercise">
+      <%= link_to exercise_path(exercise.id), class: "habit_mypage_link" do%>
+      <div class="mypage-contents">
+        <div class="mypage-text">
+          <%= simple_format(exercise.text) %>
+        </div>
+        <div class="mypage-image">
+          <%= image_tag exercise.image.variant(resize: '200x200') if exercise.image.attached? %>
+        </div>
+        <div class="mypage-time">
+          <%= exercise.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <% end %>
+
+    <h2 class="mypage-habit-title">ダイエット</h2>
+    <% @daiets.each do |daiet| %>
+    <div class="mypage-daiet">
+      <%= link_to exercise_path(daiet.id), class: "habit_mypage_link" do%>
+      <div class="mypage-contents">
+        <div class="mypage-text">
+          <%= simple_format(daiet.text) %>
+        </div>
+        <div class="mypage-image">
+          <%= image_tag daiet.image.variant(resize: '200x200') if daiet.image.attached? %>
+        </div>
+        <div class="mypage-time">
+          <%= daiet.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <% end %>
+
+    <h2 class="mypage-habit-title">勉強</h2>
+    <% @learns.each do |learn| %>
+    <div class="mypage-learn">
+      <%= link_to exercise_path(learn.id), class: "habit_mypage_link" do %>
+      <div class="mypage-contents">
+        <div class="mypage-text">
+          <%= simple_format(learn.text) %>
+        </div>
+        <div class="mypage-image">
+          <%= image_tag learn.image.variant(resize: '200x200') if learn.image.attached? %>
+        </div>
+        <div class="mypage-time">
+          <%= learn.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <% end %>
+
+    <h2 class="mypage-habit-title">節約</h2>
+    <% @savings.each do |saving| %>
+    <div class="mypage-saving">
+      <%= link_to exercise_path(saving.id), class: "habit_mypage_link" do%>
+      <div class="mypage-contents">
+        <div class="mypage-text">
+          <%= simple_format(saving.text) %>
+        </div>
+        <div class="mypage-image">
+          <%= image_tag saving.image.variant(resize: '200x200') if saving.image.attached? %>
+        </div>
+        <div class="mypage-time">
+          <%= saving.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <% end %>
+
+    <h2 class="mypage-habit-title">瞑想</h2>
+    <% @minds.each do |mind| %>
+    <div class="mypage-mind">
+      <%= link_to exercise_path(mind.id), class: "habit_mypage_link" do%>
+      <div class="mypage-contents">
+        <div class="mypage-text">
+          <%= simple_format(mind.text) %>
+        </div>
+        <div class="mypage-image">
+          <%= image_tag mind.image.variant(resize: '200x200') if mind.image.attached? %>
+        </div>
+        <div class="mypage-time">
+          <%= mind.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <% end %>
+
+    <h2 class="mypage-habit-title">早起き</h2>
+    <% @earlies.each do |early| %>
+    <div class="mypage-early">
+      <%= link_to exercise_path(early.id), class: "habit_mypage_link" do%>
+      <div class="mypage-contents">
+        <div class="mypage-text">
+          <%= simple_format(early.text) %>
+        </div>
+        <div class="mypage-image">
+          <%= image_tag early.image.variant(resize: '200x200') if early.image.attached? %>
+        </div>
+        <div class="mypage-time">
+          <%= early.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</div>

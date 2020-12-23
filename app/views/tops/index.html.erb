@@ -3,7 +3,7 @@
       <ul class="header-lists">
         <% if user_signed_in? %>
           <li class="header-user">
-            <%= link_to "#{current_user.nickname}", root_path, class: "header_user_name" %>
+            <%= link_to "#{current_user.nickname}", user_path(current_user.id), class: "header_user_name" %>
           </li>
           <li>
             <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "header-list" %>
@@ -69,7 +69,7 @@
 <div class="main-lower">
     <div class="main-category">
       <div class="category-titles">
-        <p>運動</ｐ>
+        <p>運動</p>
         <p>ダイエット</@>
         <p>勉強</p>
       </div>

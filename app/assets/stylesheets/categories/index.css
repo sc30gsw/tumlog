@@ -91,6 +91,11 @@
   background-color: white;
 }
 
+.habit_user_link {
+  text-decoration: none;
+  color: black;
+}
+
 .habit-contents {
   margin-bottom: 20px;
   border-bottom: 1px solid gray;
@@ -100,4 +105,8 @@
 .habit_path {
   text-decoration: none;
   color: black;
+}
+
+.habit-time {
+  padding: 15px 0 0;
 }
