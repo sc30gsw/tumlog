@@ -47,6 +47,10 @@ class LearnsController < ApplicationController
     end
   end
 
+  def search
+    @learns = Learn.search(params[:keyword])
+  end
+
   private
 
   def learn_params

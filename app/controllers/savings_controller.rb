@@ -47,6 +47,10 @@ class SavingsController < ApplicationController
     end
   end
   
+  def search
+    @savings = Saving.search(params[:keyword])
+  end
+  
   private
 
   def saving_params

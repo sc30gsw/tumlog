@@ -47,6 +47,10 @@ class ExercisesController < ApplicationController
     end
   end
 
+  def search
+    @exercises = Exercise.search(params[:keyword])
+  end
+
   private
 
   def exercise_params

@@ -47,6 +47,10 @@ class DaietsController < ApplicationController
     end
   end
 
+  def search
+    @daiets = Daiet.search(params[:keyword])
+  end
+
   private
 
   def daiet_params
