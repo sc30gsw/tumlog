@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Users", type: :system do
+RSpec.describe 'ユーザー新規登録', type: :system do
   before do
     @user = FactoryBot.build(:user)
   end
@@ -53,6 +53,51 @@ RSpec.describe "Users", type: :system do
       }.to change{ User.count }.by (0)
       # 新規登録ページへ戻されることを確認する
       expect(current_path).to eq "/users"
+    end
+  end
+end
+
+RSpec.describe 'ログイン', type: :system do
+  before do
+    @user = FactoryBot.create(:user)
+  end
+
+  context 'ログインできるとき' do
+    it '保存されているユーザーの情報と合致すればログインできる' do
+      # トップページに移動する
+      visit root_path
+      # トップページにログインページへ遷移するボタンがある
+      expect(page).to have_content('ログイン')
+      # ログインページへ遷移する
+      visit new_user_session_path
+      # 正しいユーザー情報を入力する
+      fill_in 'メールアドレス', with: @user.email
+      fill_in 'パスワード', with: @user.password
+      # ログインボタンを押す
+      find('input[name="commit"]').click
+      # トップページに遷移するとログアウトボタンがある
+      expect(page).to have_content('ログアウト')
+      #　サインアップやログインボタンが表示されていない
+      expect(page).to have_no_content('新規登録')
+      expect(page).to have_no_content('ログイン')
+    end
+  end
+
+  context 'ログインできないとき' do
+    it '保存されているユーザーの情報と合致しないとログインできない' do
+      # トップページに移動する
+      visit root_path
+      # トップページにログインページへ遷移するボタンがある
+      expect(page).to have_content('ログイン')
+      # ログインページへ遷移する
+      visit new_user_session_path
+      # ユーザー情報を入力する
+      fill_in 'メールアドレス', with: ""
+      fill_in 'パスワード', with: ""
+      # ログインボタンを押す
+      find('input[name="commit"]').click
+      # ログインページに戻されることを確認する
+      expect(current_path).to eq new_user_session_path
     end
   end
 end
