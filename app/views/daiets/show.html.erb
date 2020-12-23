@@ -38,12 +38,14 @@
 </div>
 <div class="show-footer">
     <div class="comment-form">
+      <% if user_signed_in? %>
       <%= form_with(model: [@daiet, @comment], local: true) do |f| %>
         <div class="comment-field">
           <%= f.label :content, 'コメント', class: 'comment_label' %>
           <%= f.text_field :content, class: "content_field" %>
           <%= f.submit '送信する', class: 'comment_btn' %>
         </div>
+      <% end %>
       <% end %>
     </div>
   <div class="comments">

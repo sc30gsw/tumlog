@@ -10,4 +10,12 @@ class Learn < ApplicationRecord
   def was_attached?
     self.image.attached?
   end
+
+  def self.search(search)
+    if search != ""
+      Learn.where('text LIKE(?)', "%#{search}%")
+    else
+      Learn.all
+    end
+  end
 end

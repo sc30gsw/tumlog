@@ -47,6 +47,10 @@ class SavingsController < ApplicationController
     end
   end
   
+  def search
+    @savings = Saving.search(params[:keyword]).order(id: "DESC")
+  end
+  
   private
 
   def saving_params

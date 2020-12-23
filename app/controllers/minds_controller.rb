@@ -47,6 +47,10 @@ class MindsController < ApplicationController
     end
   end
 
+  def search
+    @minds = Mind.search(params[:keyword]).order(id: "DESC")
+  end
+
   private
 
   def mind_params
