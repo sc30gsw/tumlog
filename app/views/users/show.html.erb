@@ -19,7 +19,7 @@
 
 <div class="mypage-main">
   <div class="mypage-profile">
-    <h2><%= "#{@user.nickname}さんのページ" %></h2>
+    <h2><%= "#{@user.nickname}さんの情報" %></h2>
     <p class="profile"><b>プロフィール</b></p>
       <%= @user.profile%>
   </div>
@@ -46,7 +46,7 @@
     <h2 class="mypage-habit-title">ダイエット</h2>
     <% @daiets.each do |daiet| %>
     <div class="mypage-daiet">
-      <%= link_to exercise_path(daiet.id), class: "habit_mypage_link" do%>
+      <%= link_to daiet_path(daiet.id), class: "habit_mypage_link" do%>
       <div class="mypage-contents">
         <div class="mypage-text">
           <%= simple_format(daiet.text) %>
@@ -65,7 +65,7 @@
     <h2 class="mypage-habit-title">勉強</h2>
     <% @learns.each do |learn| %>
     <div class="mypage-learn">
-      <%= link_to exercise_path(learn.id), class: "habit_mypage_link" do %>
+      <%= link_to learn_path(learn.id), class: "habit_mypage_link" do %>
       <div class="mypage-contents">
         <div class="mypage-text">
           <%= simple_format(learn.text) %>
@@ -84,7 +84,7 @@
     <h2 class="mypage-habit-title">節約</h2>
     <% @savings.each do |saving| %>
     <div class="mypage-saving">
-      <%= link_to exercise_path(saving.id), class: "habit_mypage_link" do%>
+      <%= link_to saving_path(saving.id), class: "habit_mypage_link" do%>
       <div class="mypage-contents">
         <div class="mypage-text">
           <%= simple_format(saving.text) %>
@@ -103,7 +103,7 @@
     <h2 class="mypage-habit-title">瞑想</h2>
     <% @minds.each do |mind| %>
     <div class="mypage-mind">
-      <%= link_to exercise_path(mind.id), class: "habit_mypage_link" do%>
+      <%= link_to mind_path(mind.id), class: "habit_mypage_link" do%>
       <div class="mypage-contents">
         <div class="mypage-text">
           <%= simple_format(mind.text) %>
@@ -122,7 +122,7 @@
     <h2 class="mypage-habit-title">早起き</h2>
     <% @earlies.each do |early| %>
     <div class="mypage-early">
-      <%= link_to exercise_path(early.id), class: "habit_mypage_link" do%>
+      <%= link_to early_path(early.id), class: "habit_mypage_link" do%>
       <div class="mypage-contents">
         <div class="mypage-text">
           <%= simple_format(early.text) %>
