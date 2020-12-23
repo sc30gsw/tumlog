@@ -14,7 +14,7 @@ class DaietCommentsController < ApplicationController
   private
 
   def daiet_comment_params
-    params.require(:daiet_comments).permit(:content).merge(user_id: current_user.id, daiet_id: params[:daiet_id])
+    params.require(:daiet_comment).permit(:content).merge(user_id: current_user.id, daiet_id: params[:daiet_id])
   end
 
 end
