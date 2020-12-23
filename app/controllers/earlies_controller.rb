@@ -48,7 +48,7 @@ class EarliesController < ApplicationController
   end
 
   def search
-    @earlies = Early.search(params[:keyword])
+    @earlies = Early.search(params[:keyword]).order(id: "DESC")
   end
 
   private

@@ -48,7 +48,7 @@ class DaietsController < ApplicationController
   end
 
   def search
-    @daiets = Daiet.search(params[:keyword])
+    @daiets = Daiet.search(params[:keyword]).order(id: "DESC")
   end
 
   private

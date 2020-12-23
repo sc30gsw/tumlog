@@ -48,7 +48,7 @@ class LearnsController < ApplicationController
   end
 
   def search
-    @learns = Learn.search(params[:keyword])
+    @learns = Learn.search(params[:keyword]).order(id: "DESC")
   end
 
   private

@@ -48,7 +48,7 @@ class ExercisesController < ApplicationController
   end
 
   def search
-    @exercises = Exercise.search(params[:keyword])
+    @exercises = Exercise.search(params[:keyword]).order(id: "DESC")
   end
 
   private
