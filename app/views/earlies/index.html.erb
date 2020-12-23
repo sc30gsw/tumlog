@@ -37,6 +37,9 @@
         <div class="habit-image">
           <%= image_tag early.image.variant(resize: '500x500') if early.image.attached? %>
         </div>
+        <div class="habit-time">
+          <%= early.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+        </div>
       </div>
     <% end %>
   <% end %>

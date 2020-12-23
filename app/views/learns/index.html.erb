@@ -37,6 +37,9 @@
         <div class="habit-image">
           <%= image_tag learn.image.variant(resize: '500x500') if learn.image.attached? %>
         </div>
+        <div class="habit-time">
+          <%= learn.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+        </div>
       </div>
     <% end %>
   <% end %>
