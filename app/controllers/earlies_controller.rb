@@ -21,6 +21,8 @@ class EarliesController < ApplicationController
   end
 
   def show
+    @comment = EarlyComment.new
+    @comments = @early.early_commnets.includes(:user)
   end
 
   def edit

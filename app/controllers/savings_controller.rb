@@ -21,6 +21,8 @@ class SavingsController < ApplicationController
   end
 
   def show
+    @comment = SavingComment.new
+    @comments = @saving.saving_comments.includes(:user)
   end
 
   def edit
