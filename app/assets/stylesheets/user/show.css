@@ -9,9 +9,11 @@
   margin: 70px 30px 10px 0;
 }
 
-.show_user_delete {
+.show_user_link {
   margin-right: 10px;
   font-size: 15px;
+  text-decoration: none;
+  color: black;
 }
 
 .mypage-profile {

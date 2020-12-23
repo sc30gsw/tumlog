@@ -3,7 +3,11 @@
   <%= link_to image_tag("logo.png", class: "header-image", height: "80", width: "200", alt: "積みログ"), daiets_path %> 
   <div class="mypage-user-header">
     <div class="mypage-user">
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "show_user_delete" %>
+      <% if user_signed_in? %>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "show_user_link" %>
+      <% else %>
+        <%= link_to "ログイン", new_user_session_path, class: "show_user_link" %>
+      <% end %>
       <select onChange="location.href=value;" class="header-list">
         <option>カテゴリーを選択してください</option>
         <option value=<%= exercises_path %>>運動</option>
