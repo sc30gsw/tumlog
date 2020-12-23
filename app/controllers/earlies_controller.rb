@@ -22,7 +22,7 @@ class EarliesController < ApplicationController
 
   def show
     @comment = EarlyComment.new
-    @comments = @early.early_commnets.includes(:user)
+    @comments = @early.early_comments.includes(:user)
   end
 
   def edit

@@ -14,6 +14,6 @@ class SavingCommentsController < ApplicationController
   private
 
   def saving_comment_params
-    params.require(:saving_comment).permit(:content).merge(usre_id: current_user.id, saving_id: params[:saving_id])
+    params.require(:saving_comment).permit(:content).merge(user_id: current_user.id, saving_id: params[:saving_id])
   end
 end
