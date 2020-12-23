@@ -21,6 +21,8 @@ class ExercisesController < ApplicationController
   end
 
   def show
+    @comment = ExerciseComment.new
+    @comments = @exercise.exercise_comments.includes(:user)
   end
 
   def edit

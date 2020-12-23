@@ -17,8 +17,8 @@
 
 <% if user_signed_in? && current_user.id == @mind.user_id %>
   <div class="habit-manage">
-    <%= link_to "編集する", edit_mind_path(@mind.id), class: "habit_btn" %>
-    <%= link_to "削除する", mind_path(@mind.id), method: :delete, class: "habit_btn" %>
+    <%= link_to "編集する", edit_saving_path(@mind.id), class: "habit_btn" %>
+    <%= link_to "削除する", saving_path(@mind.id), method: :delete, class: "habit_btn" %>
   </div>
 <% end %>
 
@@ -37,25 +37,20 @@
   </div>
 </div>
 <div class="show-footer">
+  <div class="comment-form">
+    <%= form_with(model: [@mind, @comment], local: true) do |f| %>
+      <div class="comment-field">
+        <%= f.label :content, 'コメント', class: 'comment_label' %>
+        <%= f.text_field :content, class: "content_field" %>
+        <%= f.submit '送信する', class: 'comment_btn' %>
+      </div>
+    <% end %>    
+ </div>
   <div class="comments">
-    <div class="comment-form">
-      <h1 class="comment-title">コメントする</h1>
-      <input type="text-filed" class="comment-field">
-      <input type="submit" value="送信する" class="comment-btn">
-      <div class="comment">
-        <span class="comment-text">あいうえお</span>
-        <%#コメント一覧%>
-        <div class="comment-user">
-          <%#コメントしたユーザー%>
-        </div>
-      </div>
-      <div class="comment">
-        <span class="comment-text">あいうえお</span>
-        <%#コメント一覧%>
-        <div class="comment-user">
-          <%#コメントしたユーザー%>
-        </div>
-      </div>
+    <div class="comment">
+      <% if @comments %>
+        <%= render partial: 'shared/comment', collection: @comments %>
+      <% end %>
     </div>
   </div>
 </div>

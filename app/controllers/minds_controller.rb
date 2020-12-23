@@ -21,6 +21,8 @@ class MindsController < ApplicationController
   end
 
   def show
+    @comment = MindComment.new
+    @comments = @mind.mind_comments.includes(:user)
   end
   
   def edit

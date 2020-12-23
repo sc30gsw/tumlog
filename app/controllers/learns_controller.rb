@@ -21,6 +21,8 @@ class LearnsController < ApplicationController
   end
 
   def show
+    @comment = LearnComment.new
+    @comments = @learn.learn_comments.includes(:user)
   end
 
   def edit

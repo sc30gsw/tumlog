@@ -17,7 +17,12 @@
 - has_many :larns
 - has_many :savings
 - has_many :minds
-- has_many :comments
+- has_many :exercise_comments
+- has_many :daiet_comments
+- has_many :learn_comments
+- has_many :saving_comments
+- has_many :mind_comments
+- has_many :early_comments
 
 ## exercisesテーブル
 

@@ -9,13 +9,13 @@
     <% else %>
       <div class="show-logout-user">
         <%= link_to "ログイン", new_user_session_path, class: "show_user_session" %>
-        <%= link_to "新規登録", new_user_registration_path, class: "show_user_new"  %>
+        <%= link_to "新規登録", new_user_registration_path, class: "show_user_new" %>
       </div>
     <% end %>
   </div>
 </div>
 
-<% if user_signed_in? && current_user.id == @learn.user_id%>
+<% if user_signed_in? && current_user.id == @learn.user_id %>
   <div class="habit-manage">
     <%= link_to "編集する", edit_learn_path(@learn.id), class: "habit_btn" %>
     <%= link_to "削除する", learn_path(@learn.id), method: :delete, class: "habit_btn" %>
@@ -37,25 +37,20 @@
   </div>
 </div>
 <div class="show-footer">
+  <div class="comment-form">
+    <%= form_with(model: [@learn, @comment], local: true) do |f| %>
+      <div class="comment-field">
+        <%= f.label :content, 'コメント', class: 'comment_label' %>
+        <%= f.text_field :content, class: "content_field" %>
+        <%= f.submit '送信する', class: 'comment_btn' %>
+      </div>
+    <% end %>    
+ </div>
   <div class="comments">
-    <div class="comment-form">
-      <h1 class="comment-title">コメントする</h1>
-      <input type="text-filed" class="comment-field">
-      <input type="submit" value="送信する" class="comment-btn">
-      <div class="comment">
-        <span class="comment-text">あいうえお</span>
-        <%#コメント一覧%>
-        <div class="comment-user">
-          <%#コメントしたユーザー%>
-        </div>
-      </div>
-      <div class="comment">
-        <span class="comment-text">あいうえお</span>
-        <%#コメント一覧%>
-        <div class="comment-user">
-          <%#コメントしたユーザー%>
-        </div>
-      </div>
+    <div class="comment">
+      <% if @comments %>
+        <%= render partial: 'shared/comment', collection: @comments %>
+      <% end %>
     </div>
   </div>
 </div>

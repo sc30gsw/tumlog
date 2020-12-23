@@ -21,6 +21,8 @@ class DaietsController < ApplicationController
   end
 
   def show
+    @comment = DaietComment.new
+    @comments = @daiet.daiet_comments.includes(:user)
   end
 
   def edit
