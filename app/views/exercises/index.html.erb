@@ -26,20 +26,20 @@
 
 <div class="habits">
   <div class="habit">
-    <% @exercises.each do |exercise| %>
-      <div class="habit-user">
-        <b><%= link_to exercise.user.nickname, user_path(exercise.user_id), class: "habit_user_link" %>さんの積み上げ</b>
+  <% @exercises.each do |exercise| %>
+    <div class="habit-user">
+      <b><%= link_to exercise.user.nickname, user_path(exercise.user_id), class: "habit_user_link" %>さんの積み上げ</b>
+    </div>
+    <%= link_to exercise_path(exercise.id), class: "habit_link" do%>
+    <div class="habit-contents">
+      <div class="habit-text">
+        <%= simple_format(exercise.text) %>
       </div>
-      <%= link_to exercise_path(exercise.id), class: "habit_link" do%>
-        <div class="habit-contents">
-          <div class="habit-text">
-            <%= simple_format(exercise.text) %>
-          </div>
-          <div class="habit-image">
-           <%= image_tag exercise.image.variant(resize: '500x500') if exercise.image.attached? %>
-          </div>
-        </div>
-      <% end %>
+      <div class="habit-image">
+        <%= image_tag exercise.image.variant(resize: '500x500') if exercise.image.attached? %>
+      </div>
+    </div>
     <% end %>
+  <% end %>
   </div>
 </div>
