@@ -1,6 +1,7 @@
 class Daiet < ApplicationRecord
 
   belongs_to :user
+  has_many :daiet_comments
   has_one_attached :image
 
   validates :text, presence: true, unless: :was_attached?

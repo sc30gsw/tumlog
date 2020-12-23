@@ -1,6 +1,7 @@
 class Learn < ApplicationRecord
 
   belongs_to :user
+  has_many :learn_comments
   has_one_attached :image
   
   validates :text, presence: true, unless: :was_attached?
