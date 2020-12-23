@@ -38,6 +38,7 @@
 </div>
 <div class="show-footer">
   <div class="comment-form">
+    <% if user_signed_in? %>
     <%= form_with(model: [@mind, @comment], local: true) do |f| %>
       <div class="comment-field">
         <%= f.label :content, 'コメント', class: 'comment_label' %>
@@ -45,6 +46,7 @@
         <%= f.submit '送信する', class: 'comment_btn' %>
       </div>
     <% end %>    
+    <% end %>
  </div>
   <div class="comments">
     <div class="comment">

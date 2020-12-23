@@ -68,6 +68,7 @@
 .show-footer {
   height: 350px;
   background-color: lightgray;
+  padding-top: 20px;
 }
 
 .comment-field {
