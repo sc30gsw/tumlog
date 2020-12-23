@@ -9,6 +9,7 @@ class User < ApplicationRecord
  has_many :learns
  has_many :savings
  has_many :minds
+ has_many :earlies
  
   with_options presence: true do
     validates :nickname
