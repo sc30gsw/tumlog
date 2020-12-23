@@ -37,25 +37,20 @@
   </div>
 </div>
 <div class="show-footer">
-  <div class="comments">
     <div class="comment-form">
-      <h1 class="comment-title">コメントする</h1>
-      <input type="text-filed" class="comment-field">
-      <input type="submit" value="送信する" class="comment-btn">
-      <div class="comment">
-        <span class="comment-text">あいうえお</span>
-        <%#コメント一覧%>
-        <div class="comment-user">
-          <%#コメントしたユーザー%>
+      <%= form_with(model: [@daiet, @comment], local: true) do |f| %>
+        <div class="comment-field">
+          <%= f.label :content, 'コメント', class: 'comment_label' %>
+          <%= f.text_field :content, class: "content_field" %>
+          <%= f.submit '送信する', class: 'comment_btn' %>
         </div>
-      </div>
-      <div class="comment">
-        <span class="comment-text">あいうえお</span>
-        <%#コメント一覧%>
-        <div class="comment-user">
-          <%#コメントしたユーザー%>
-        </div>
-      </div>
+      <% end %>
+    </div>
+  <div class="comments">
+    <div class="comment">
+      <% if @comments %>
+        <%= render partial: 'shared/comment', collection: @comments %>
+      <% end %>
     </div>
   </div>
 </div>

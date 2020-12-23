@@ -1,0 +1,6 @@
+<div class="comment-text">
+  <%= comment.content %>
+</div>
+<div class="comment-user">
+  <b><%= link_to comment.user.nickname, user_path(comment.user_id), class: "comment_link" %></b>さん
+</div>
