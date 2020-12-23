@@ -1,0 +1,2 @@
+class SavingCommentsController < ApplicationController
+end

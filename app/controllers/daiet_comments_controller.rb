@@ -1,0 +1,2 @@
+class DaietCommentsController < ApplicationController
+end

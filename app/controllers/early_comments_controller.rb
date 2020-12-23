@@ -1,0 +1,2 @@
+class EarlyCommentsController < ApplicationController
+end

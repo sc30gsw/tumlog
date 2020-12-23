@@ -1,0 +1,2 @@
+class MindCommentsController < ApplicationController
+end
