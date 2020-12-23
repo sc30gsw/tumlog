@@ -1,0 +1,2 @@
+class EarlyComment < ApplicationRecord
+end

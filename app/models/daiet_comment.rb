@@ -1,0 +1,2 @@
+class DaietComment < ApplicationRecord
+end
