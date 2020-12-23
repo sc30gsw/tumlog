@@ -1,0 +1,61 @@
+.mypage-header {
+  width: 100vw;
+  height: 100px;
+  background-color: lightgray;
+}
+
+.mypage-user {
+  float: right;
+  margin: 70px 30px 10px 0;
+}
+
+.show_user_delete {
+  margin-right: 10px;
+  font-size: 15px;
+}
+
+.mypage-profile {
+  margin: 40px auto 0;
+  text-align: center;
+  border: 1px solid black;
+  width: 40%;
+  padding: 10px 30px 100px;
+}
+
+.mypage-profile h2 {
+  border-bottom: 1px solid black;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.profile {
+  padding-top: 20px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid black;
+}
+
+.mypage-habit {
+  text-align: center;
+  overflow: scroll;
+  margin: 30px auto 0;
+  width: 50vw;
+}
+
+.mypage-habit-title {
+  margin-top: 50px;
+  padding-top: 20px;
+}
+
+.habit_mypage_link {
+  text-decoration: none;
+  color: black;
+}
+
+.mypage-contents {
+  background-color: lightgray;
+  padding: 20px 0;
+}
+
+.mypage-time {
+  padding-top: 10px;
+}
