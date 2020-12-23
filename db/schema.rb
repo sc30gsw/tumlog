@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_22_010929) do
+ActiveRecord::Schema.define(version: 2020_12_23_034439) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(version: 2020_12_22_010929) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "daiet_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "content", null: false
+    t.bigint "user_id", null: false
+    t.bigint "daiet_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["daiet_id"], name: "index_daiet_comments_on_daiet_id"
+    t.index ["user_id"], name: "index_daiet_comments_on_user_id"
+  end
+
   create_table "daiets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "text", null: false
     t.bigint "user_id", null: false
@@ -49,12 +59,42 @@ ActiveRecord::Schema.define(version: 2020_12_22_010929) do
     t.index ["user_id"], name: "index_earlies_on_user_id"
   end
 
+  create_table "early_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "content", null: false
+    t.bigint "user_id", null: false
+    t.bigint "early_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["early_id"], name: "index_early_comments_on_early_id"
+    t.index ["user_id"], name: "index_early_comments_on_user_id"
+  end
+
+  create_table "exercise_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "content", null: false
+    t.bigint "user_id", null: false
+    t.bigint "exercise_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["exercise_id"], name: "index_exercise_comments_on_exercise_id"
+    t.index ["user_id"], name: "index_exercise_comments_on_user_id"
+  end
+
   create_table "exercises", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "text", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_exercises_on_user_id"
+  end
+
+  create_table "learn_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "contetn", null: false
+    t.bigint "user_id", null: false
+    t.bigint "learn_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["learn_id"], name: "index_learn_comments_on_learn_id"
+    t.index ["user_id"], name: "index_learn_comments_on_user_id"
   end
 
   create_table "learns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -65,12 +105,32 @@ ActiveRecord::Schema.define(version: 2020_12_22_010929) do
     t.index ["user_id"], name: "index_learns_on_user_id"
   end
 
+  create_table "mind_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "content", null: false
+    t.bigint "user_id", null: false
+    t.bigint "mind_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["mind_id"], name: "index_mind_comments_on_mind_id"
+    t.index ["user_id"], name: "index_mind_comments_on_user_id"
+  end
+
   create_table "minds", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "text", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_minds_on_user_id"
+  end
+
+  create_table "saving_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "content", null: false
+    t.bigint "user_id", null: false
+    t.bigint "saving_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["saving_id"], name: "index_saving_comments_on_saving_id"
+    t.index ["user_id"], name: "index_saving_comments_on_user_id"
   end
 
   create_table "savings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -96,10 +156,22 @@ ActiveRecord::Schema.define(version: 2020_12_22_010929) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "daiet_comments", "daiets"
+  add_foreign_key "daiet_comments", "users"
   add_foreign_key "daiets", "users"
   add_foreign_key "earlies", "users"
+  add_foreign_key "early_comments", "earlies"
+  add_foreign_key "early_comments", "users"
+  add_foreign_key "exercise_comments", "exercises"
+  add_foreign_key "exercise_comments", "users"
   add_foreign_key "exercises", "users"
+  add_foreign_key "learn_comments", "learns"
+  add_foreign_key "learn_comments", "users"
   add_foreign_key "learns", "users"
+  add_foreign_key "mind_comments", "minds"
+  add_foreign_key "mind_comments", "users"
   add_foreign_key "minds", "users"
+  add_foreign_key "saving_comments", "savings"
+  add_foreign_key "saving_comments", "users"
   add_foreign_key "savings", "users"
 end
