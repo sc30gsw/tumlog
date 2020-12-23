@@ -10,4 +10,12 @@ class Saving < ApplicationRecord
   def was_attached?
     self.image.attached?
   end
+
+  def self.search(search)
+    if search != ""
+      Saving.where('text LIKE(?)', "%#{search}%")
+    else
+      Saving.all
+    end
+  end
 end

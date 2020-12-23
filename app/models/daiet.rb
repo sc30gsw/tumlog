@@ -10,4 +10,12 @@ class Daiet < ApplicationRecord
   def was_attached?
     self.image.attached?
   end
+
+  def self.search(search)
+    if search != ""
+      Daiet.where('text LIKE(?)', "%#{search}%")
+    else
+      Daiet.all
+    end
+  end
 end

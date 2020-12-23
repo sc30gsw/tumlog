@@ -10,4 +10,12 @@ class Exercise < ApplicationRecord
   def was_attached?
     self.image.attached?
   end
+
+  def self.search(search)
+    if search != ""
+      Exercise.where('text LIKE(?)', "%#{search}%")
+    else
+      Exercise.all
+    end
+  end
 end

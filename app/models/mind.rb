@@ -10,4 +10,12 @@ class Mind < ApplicationRecord
   def was_attached?
     self.image.attached?
   end
+
+  def self.search(search)
+    if search != ""
+      Mind.where('text LIKE(?)', "%#{search}%")
+    else
+      Mind.all
+    end
+  end
 end

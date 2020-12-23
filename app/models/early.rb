@@ -10,4 +10,12 @@ class Early < ApplicationRecord
   def was_attached?
     self.image.attached?
   end
+
+  def self.search(search)
+    if search != ""
+      Early.where('text LIKE(?)', "%#{search}%")
+    else
+      Early.all
+    end
+  end
 end
