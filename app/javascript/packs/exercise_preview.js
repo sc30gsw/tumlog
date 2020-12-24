@@ -4,8 +4,8 @@ function preview(){
     const file = e.target.files[0];
     const blob = window.URL.createObjectURL(file);
 
-   /*  const imageElement = document.createElement('div');
-    const blobImage = document.createElement('img'); */
+    const imageElement = document.createElement('div');
+    const blobImage = document.createElement('img');
   })
 }
 window.addEventListener('load', preview);
