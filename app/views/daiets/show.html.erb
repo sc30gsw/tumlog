@@ -46,6 +46,10 @@
           <%= f.submit '送信する', class: 'comment_btn' %>
         </div>
       <% end %>
+      <% else %>
+        <div class="not-comment">
+          <h3 class="not-text">※コメントの投稿には新規登録/ログインが必要です</h3>
+        </div>
       <% end %>
     </div>
   <div class="comments">

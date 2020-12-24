@@ -96,6 +96,11 @@
   margin-top: 10px;
 }
 
+.not-comment {
+  text-align: center;
+  color: rgb(241, 76, 76);
+}
+
 .comments {  
   width: 30%;
   height: 250px;
