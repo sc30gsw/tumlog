@@ -191,3 +191,42 @@ RSpec.describe "投稿削除", type: :system do
     end
   end
 end
+
+RSpec.describe '投稿詳細', type: :system do
+  before do
+    @user = FactoryBot.create(:user)
+    @early = FactoryBot.create(:early)
+  end
+  it 'ログインしたユーザーはツイート詳細ページに遷移してコメント投稿欄が表示される' do
+    # ログインする
+    sign_in(@user)
+    # カテゴリー選択のリンクがあることを確認する
+    expect(page).to have_content('カテゴリーを選択してください')
+    # 該当カテゴリーページに遷移する
+    visit earlies_path
+    # 投稿詳細ページに遷移する
+    visit early_path(@early)
+    # 詳細ページにツイートの内容が含まれている
+    expect(page).to have_selector("img")
+    expect(page).to have_content(@early.text)
+    # コメント用のフォームが存在する
+    expect(page).to have_content("コメント")
+  end
+  it 'ログインしていない状態でツイート詳細ページに遷移できるもののコメント投稿欄が表示されない' do
+    # トップページに移動する
+    visit root_path
+    # カテゴリー選択のリンクがあることを確認する
+    expect(page).to have_content('カテゴリーを選択してください')
+    # 該当カテゴリーページに遷移する
+    visit earlies_path
+    # 投稿詳細ページに遷移する
+    visit early_path(@early)
+    # 詳細ページにツイートの内容が含まれている
+    expect(page).to have_selector("img")
+    expect(page).to have_content(@early.text)
+    # フォームが存在しないことを確認する
+    expect(page).to have_no_selector("content_field")
+    # 「コメントの投稿には新規登録/ログインが必要です」が表示されていることを確認する
+    expect(page).to have_content("※コメントの投稿には新規登録/ログインが必要です")
+  end
+end
