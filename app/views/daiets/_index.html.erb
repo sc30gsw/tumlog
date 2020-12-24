@@ -43,7 +43,7 @@
            <%= simple_format(daiet.text) %>
           </div>
           <div class="habit-image">
-            <%= image_tag exercise.image.variant(resize: '500x500') if daiet.image.attached? %>
+            <%= image_tag daiet.image.variant(resize: '500x500') if daiet.image.attached? %>
           </div>
           <div class="habit-time">
             <%= daiet.created_at.strftime("%Y-%m-%d %H:%M:%S") %>

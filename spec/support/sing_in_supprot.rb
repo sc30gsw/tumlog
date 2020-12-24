@@ -4,7 +4,6 @@ module SignInSupport
     fill_in 'メールアドレス', with: @user.email
     fill_in 'パスワード', with: @user.password
     find('input[name="commit"]').click
-    expect(page).to have_content('ログアウト')
     expect(page).to have_no_content('新規登録')
     expect(page).to have_no_content('ログイン')
   end
