@@ -79,7 +79,7 @@ RSpec.describe 'ログイン', type: :system do
       find('input[name="commit"]').click
       # トップページに遷移するとログアウトボタンがある
       expect(page).to have_content('ログアウト')
-      #　サインアップやログインボタンが表示されていない
+      # サインアップやログインボタンが表示されていない
       expect(page).to have_no_content('新規登録')
       expect(page).to have_no_content('ログイン')
     end
