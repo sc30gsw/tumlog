@@ -127,3 +127,67 @@ RSpec.describe "投稿編集", type: :system do
     end
   end
 end
+
+RSpec.describe "投稿削除", type: :system do
+  before do
+    @daiet1 = FactoryBot.create(:daiet)
+    @daiet2 = FactoryBot.create(:daiet)
+  end
+
+  context '投稿削除ができるとき' do
+    it 'ログインしたユーザーは自らが投稿した内容を削除できる' do
+      # 投稿1をしたユーザーでログインする
+      visit new_user_session_path
+      fill_in 'メールアドレス', with: @daiet1.user.email
+      fill_in 'パスワード', with: @daiet1.user.password
+      find('input[name="commit"]').click
+      # カテゴリー選択のリンクがあることを確認する
+      expect(page).to have_content('カテゴリーを選択してください')
+      # 該当カテゴリーページに遷移する
+      visit daiets_path
+      # 投稿1の詳細ページに遷移する
+      visit daiet_path(@daiet1)
+      # 投稿1に削除ボタンがあることを確認する
+      expect(page).to have_content('削除する')
+      # 投稿を削除するとレコードの数が1減ることを確認する
+      expect{
+        find_link("削除する", href: daiet_path(@daiet1)).click
+      }.to change { Daiet.count }.by(-1)
+      # 投稿一覧ページに遷移する
+      visit daiets_path
+      # 投稿一覧ページは投稿1の内容が存在しないことを確認する(画像)
+      expect(page).to have_no_content(@daiet1.image)
+      # 投稿一覧ページは投稿1の内容が存在しないことを確認する(テキスト)
+      expect(page).to have_no_content(@daiet1.text)
+    end
+  end
+  context '投稿削除できないとき' do
+    it 'ログインしたユーザーは自分以外が投稿した内容を削除できない' do
+      # 投稿1をしたユーザーでログインする
+      visit new_user_session_path
+      fill_in 'メールアドレス', with: @daiet1.user.email
+      fill_in 'パスワード', with: @daiet1.user.password
+      find('input[name="commit"]').click
+      # 投稿2に削除ボタンがないことを確認する
+      expect(page).to have_no_link '削除する', href: daiet_path(@daiet2)
+    end
+    it 'ログインしていないと投稿の削除ボタンがない' do
+      # トップページに移動する
+      visit root_path
+      # カテゴリー選択のリンクがあることを確認する
+      expect(page).to have_content('カテゴリーを選択してください')
+      # 該当カテゴリーページに遷移する
+      visit daiets_path
+      # 投稿1の詳細ページに遷移する
+      visit daiet_path(@daiet1)
+      # 投稿1に削除ボタンがないことを確認する
+      expect(page).to have_no_link '削除する', href: daiet_path(@daiet1)
+      # 該当カテゴリーページに遷移する
+      visit daiets_path
+      # 投稿2の詳細ページに遷移する
+      visit daiet_path(@daiet2)
+      # 投稿2に削除ボタンがないことを確認する
+      expect(page).to have_no_link '削除する', href: daiet_path(@daiet2)
+    end
+  end
+end

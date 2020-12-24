@@ -24,7 +24,7 @@ RSpec.describe "新規投稿", type: :system do
       image_path = Rails.root.join('public/images/test_image.png')
       # 画像選択フォームに画像を添付する
       attach_file('exercise[image]', image_path, make_visible: true)
-      # 送信するとDaietモデルのカウントが1上がることを確認する
+      # 送信するとモデルのカウントが1上がることを確認する
       expect {
         find('input[name="commit"]').click
       }.to change { Exercise.count }.by(1)
@@ -124,6 +124,70 @@ RSpec.describe "投稿編集", type: :system do
       visit exercise_path(@exercise2)
       # 投稿2に編集ボタンが無いことを確認する
       expect(page).to have_no_content('編集する')
+    end
+  end
+end
+
+RSpec.describe "投稿削除", type: :system do
+  before do
+    @exercise1 = FactoryBot.create(:exercise)
+    @exercise2 = FactoryBot.create(:exercise)
+  end
+
+  context '投稿削除ができるとき' do
+    it 'ログインしたユーザーは自らが投稿した内容を削除できる' do
+      # 投稿1をしたユーザーでログインする
+      visit new_user_session_path
+      fill_in 'メールアドレス', with: @exercise1.user.email
+      fill_in 'パスワード', with: @exercise1.user.password
+      find('input[name="commit"]').click
+      # カテゴリー選択のリンクがあることを確認する
+      expect(page).to have_content('カテゴリーを選択してください')
+      # 該当カテゴリーページに遷移する
+      visit exercises_path
+      # 投稿1の詳細ページに遷移する
+      visit exercise_path(@exercise1)
+      # 投稿1に削除ボタンがあることを確認する
+      expect(page).to have_content('削除する')
+      # 投稿を削除するとレコードの数が1減ることを確認する
+      expect{
+        find_link("削除する", href: exercise_path(@exercise1)).click
+      }.to change { Exercise.count }.by(-1)
+      # 投稿一覧ページに遷移する
+      visit exercises_path
+      # 投稿一覧ページは投稿1の内容が存在しないことを確認する(画像)
+      expect(page).to have_no_content(@exercise1.image)
+      # 投稿一覧ページは投稿1の内容が存在しないことを確認する(テキスト)
+      expect(page).to have_no_content(@exercise1.text)
+    end
+  end
+  context '投稿削除できないとき' do
+    it 'ログインしたユーザーは自分以外が投稿した内容を削除できない' do
+      # 投稿1をしたユーザーでログインする
+      visit new_user_session_path
+      fill_in 'メールアドレス', with: @exercise1.user.email
+      fill_in 'パスワード', with: @exercise1.user.password
+      find('input[name="commit"]').click
+      # 投稿2に削除ボタンがないことを確認する
+      expect(page).to have_no_link '削除する', href: exercise_path(@exercise2)
+    end
+    it 'ログインしていないと投稿の削除ボタンがない' do
+      # トップページに移動する
+      visit root_path
+      # カテゴリー選択のリンクがあることを確認する
+      expect(page).to have_content('カテゴリーを選択してください')
+      # 該当カテゴリーページに遷移する
+      visit exercises_path
+      # 投稿1の詳細ページに遷移する
+      visit exercise_path(@exercise1)
+      # 投稿1に削除ボタンがないことを確認する
+      expect(page).to have_no_link '削除する', href: exercise_path(@exercise1)
+      # 該当カテゴリーページに遷移する
+      visit exercises_path
+      # 投稿2の詳細ページに遷移する
+      visit exercise_path(@exercise2)
+      # 投稿2に削除ボタンがないことを確認する
+      expect(page).to have_no_link '削除する', href: exercise_path(@exercise2)
     end
   end
 end
