@@ -1,0 +1,28 @@
+<ul class="header-lists">
+  <% if user_signed_in? %>
+     <li class="header-user">
+      <%= link_to "#{current_user.nickname}", user_path(current_user.id), class: "header_user_name" %>
+     </li>
+     <li>
+       <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "header-list" %>
+     </li>
+     <% else %>
+     <li>
+       <%= link_to 'ログイン', new_user_session_path, class:"header-list" %>
+     </li>
+      <li>
+        <%= link_to '新規登録', new_user_registration_path, class: "header-list" %>
+     </li>
+      <% end %>
+      <li>
+        <select onChange="location.href=value;" class="header-list">
+           <option>カテゴリーを選択してください</option>
+           <option value=<%= exercises_path %>>運動</option>
+           <option value=<%= daiets_path %>>ダイエット</option>
+           <option value=<%= learns_path %>>勉強</option>
+           <option value=<%= savings_path %>>節約</option>
+           <option value=<%= minds_path%>>瞑想</option>
+           <option value=<%= earlies_path %>>早起き</option>
+         </select>
+      </li>
+</ul>

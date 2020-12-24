@@ -12,9 +12,13 @@
       <%= f.text_field :keyword, placeholder: "投稿を検索する", class: "search-field" %>
       <%= f.submit "検索する", class: "search-btn" %>
     <% end %>
+
+  <% if user_signed_in? %>
     <%= form_with url: new_daiet_path, method: :get, local: true do |f| %>
       <%= f.submit "投稿する", class: "habit-btn" %>
     <% end %>
+  <% end %>
+  
   </div>
   <div class="habit-lists">
     <select onChange="location.href=value;" class="habit-list">
@@ -29,23 +33,23 @@
 </div>
 <div class="habits">
   <div class="habit">
-  <% @daiets.each do |daiet| %>
-    <div class="habit-user">
-      <b><%= link_to daiet.user.nickname, user_path(daiet.user_id), class: "habit_user_link" %>さんの積み上げ</b>
-    </div>
-    <%= link_to daiet_path(daiet.id), class: "habit_link" do %>
-      <div class="habit-contents">
-        <div class="habit-text">
-          <%= simple_format(daiet.text) %>
-        </div>
-        <div class="habit-image">
-          <%= image_tag exercise.image.variant(resize: '500x500') if daiet.image.attached? %>
-        </div>
-        <div class="habit-time">
-          <%= daiet.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
-        </div>
+    <% @daiets.each do |daiet| %>
+      <div class="habit-user">
+        <b><%= link_to daiet.user.nickname, user_path(daiet.user_id), class: "habit_user_link" %>さんの積み上げ</b>
       </div>
+      <%= link_to daiet_path(daiet.id), class: "habit_link" do %>
+        <div class="habit-contents">
+          <div class="habit-text">
+           <%= simple_format(daiet.text) %>
+          </div>
+          <div class="habit-image">
+            <%= image_tag daiet.image.variant(resize: '500x500') if daiet.image.attached? %>
+          </div>
+          <div class="habit-time">
+            <%= daiet.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+          </div>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
   </div>
 </div>

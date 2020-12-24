@@ -45,27 +45,31 @@
     <p class="app-concept">「習慣化アプリ」です</p>
   </div>
 <div class="main">
-    <div class="explain">
-      <h1 class="about">積みログの特徴</h1>
-        <div class="about-image">
-          <img class="left-explain" src="https://renai-torisetsu.net/wp-content/uploads/2017/07/2-1-2-500x334.jpg">
-          <img class="center-explain" src="https://www.keieiryoku.jp/img/catch/000100.jpg">
-          <img class="right-explain" src="https://is702.jp/main/special/3502/images/special_main.jpg">
-        </div>
-      <ul class="about-lists">
-        <li class="about-left">シンプルで使いやすい！</li>
-        <li class="about-center">同じ目標のカテゴリーを選択！</li>
-        <li class="about-right">習慣を投稿してシェアし合うおう！</li>
-      </ul>
+  <div class="explain">
+    <h1 class="about">積みログの特徴</h1>
+    <div class="about-image">
+       <img class="left-explain" src="https://renai-torisetsu.net/wp-content/uploads/2017/07/2-1-2-500x334.jpg">
+       <img class="center-explain" src="https://www.keieiryoku.jp/img/catch/000100.jpg">
+       <img class="right-explain" src="https://is702.jp/main/special/3502/images/special_main.jpg">
     </div>
+     <ul class="about-lists">
+      <li class="about-left">シンプルで使いやすい！</li>
+      <li class="about-center">同じ目標のカテゴリーを選択！</li>
+      <li class="about-right">習慣を投稿してシェアし合うおう！</li>
+     </ul>
   </div>
+</div>
 <div class="promotion">
-    <div class="promotion-content">
-      <%= image_tag("logo.png", class: "promotion-image", height: "80", width: "200", alt: "積みログ") %>  
-      <h1 class="promotion-text">今すぐアプリを使ってみよう！</h1>
-      <p>※ 扉をクリックでスタート！</p>
-    </div>
+  <div class="promotion-content">
+    <%= image_tag("logo.png", class: "promotion-image", height: "80", width: "200", alt: "積みログ") %>  
+    <h1 class="promotion-text">今すぐアプリを使ってみよう！</h1>
+    <p>※ 扉をクリックでスタート！</p>
   </div>
+</div>
+
+<%#結合テスト時のみ表示させる %>
+<%#= render 'test' %>
+
 <div class="main-lower">
     <div class="main-category">
       <div class="category-titles">
