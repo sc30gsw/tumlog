@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+# views/tops/index.html.erbの71行目の部分テンプレートのコメントアウトを外してから実行する
+
 RSpec.describe 'ユーザー新規登録', type: :system do
   before do
     @user = FactoryBot.build(:user)
