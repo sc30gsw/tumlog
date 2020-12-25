@@ -7,7 +7,7 @@ class DaietCommentsController < ApplicationController
     else
       @daiet = @comment.daiet
       @comments = @daiet.daiet_comments
-      render 'daiet/show'
+      render 'daiets/show'
     end
   end
 

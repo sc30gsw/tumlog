@@ -7,7 +7,7 @@ class LearnCommentsController < ApplicationController
     else
       @learn = @comment.learn
       @comments = @learn.learn_comments
-      render 'learn/show'
+      render 'learns/show'
     end
   end
 

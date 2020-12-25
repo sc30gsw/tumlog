@@ -7,7 +7,7 @@ class SavingCommentsController < ApplicationController
     else
       @saving = @comment.saving
       @comments = @saving.saving_comments
-      render 'saving/show'
+      render 'savings/show'
     end
   end
 
