@@ -8,9 +8,9 @@
         </div>
         <h1 class="new-form-title">投稿する</h1>
       </div>
-      <%= render partial: 'habit_form', locals: { daiet: @daiet } %>
+      <%= render partial: 'habit_form', locals:{ daiet: @daiet } %>
     </div>
   </div>
 </div>
-<%= link_to image_tag("logo.png", class: "header-image", height: "80", width: "200", alt: "積みログ"), daiets_path %> 
+<%= link_to image_tag("logo.png", class: "header-image", height: "80", width: "200", alt: "積みログ"), exercises_path %> 
 <%= render 'shared/new_footer' %>

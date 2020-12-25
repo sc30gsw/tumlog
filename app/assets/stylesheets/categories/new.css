@@ -21,7 +21,7 @@
 
 .new-habit {
   width: 50%;
-  height: 55%;
+  height: 70%;
   display: block;
   margin: 0 auto;
   background-color: white;
@@ -58,7 +58,6 @@
   color: white;
   padding: 12px;
   width: 80px;
-
 }
 
 .hidden_image {
@@ -71,6 +70,12 @@
   background-color: rgb(241, 76, 76);
   color: white;
   width: 80px;
+}
+
+.preview img {
+  margin-top: 10px;
+  height: 180px;
+  width: 180px;
 }
 
 .new-footer {

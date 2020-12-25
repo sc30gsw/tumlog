@@ -7,7 +7,7 @@ class ExerciseCommentsController < ApplicationController
     else
       @exercise = @comment.exercise
       @comments = @exercise.exercise_comments
-      render 'exercise/show'
+      render 'exercises/show'
     end
   end
 

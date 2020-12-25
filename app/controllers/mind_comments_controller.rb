@@ -7,7 +7,7 @@ class MindCommentsController < ApplicationController
     else
       @mind = @comment.mind
       @comments = @mind.mind_comments
-      render 'mind/show'
+      render 'minds/show'
     end
   end
 
