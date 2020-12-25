@@ -20,6 +20,6 @@ class User < ApplicationRecord
   with_options presence: true do
     validates :nickname
     validates :profile
-    validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{6,100}+\z/i, message: 'is invalid. Input half-width characters' }
+    validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{6,100}+\z/i, message: 'は無効です。半角英数字で入力してください' }
   end
 end

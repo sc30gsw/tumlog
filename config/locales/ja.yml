@@ -2,3 +2,22 @@ ja:
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
+
+ja:
+ activerecord:
+   attributes:
+     user:
+       nickname: ニックネーム
+       profile: プロフィール
+     exercise:
+       text: テキスト 
+     daiet:
+      text: テキスト
+     early: 
+      text: テキスト
+     learn:
+      text: テキスト
+     mind:
+      text: テキスト
+     saving:
+      text: テキスト
