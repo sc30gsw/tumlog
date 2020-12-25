@@ -9,6 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 require("./exercise_preview")
 require("./daiet_preview")
+require("./learn_preview")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
