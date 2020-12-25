@@ -12,6 +12,7 @@ require("./daiet_preview")
 require("./learn_preview")
 require("./mind_preview")
 require("./early_preview")
+require("./saving_preview")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
