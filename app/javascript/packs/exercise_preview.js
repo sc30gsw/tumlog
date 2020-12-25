@@ -5,6 +5,7 @@ function preview(){
     const blob = window.URL.createObjectURL(file);
 
     const imageElement = document.createElement('div');
+    imageElement.setAttribute('class', 'preview')
     const blobImage = document.createElement('img');
     blobImage.setAttribute('src', blob);
 
