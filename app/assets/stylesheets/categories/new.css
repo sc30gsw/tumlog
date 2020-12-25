@@ -85,6 +85,7 @@
 .new-footer-roles {
   display: flex;
   justify-content: center;
+  list-style: none;
 }
 
 .new-policy {
