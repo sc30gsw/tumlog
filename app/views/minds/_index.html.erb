@@ -3,7 +3,7 @@
     <h1>瞑想</h1>
   </div>
   <div class="category-sub">
-    <p>〜Let's meditation〜</p>
+    <p>〜Let's Meditation〜</p>
   </div>
   <%= render 'shared/category_header' %>
   <div class="category-form">
@@ -11,7 +11,6 @@
       <%= f.text_field :keyword, placeholder: "投稿を検索する", class: "search-field" %>
       <%= f.submit "検索する", class: "search-btn" %>
     <% end %>
-  
   <% if user_signed_in? %>
     <%= form_with url: new_mind_path, method: :get, local: true do |f| %>
       <%= f.submit "投稿する", class: "habit-btn" %>
@@ -21,7 +20,7 @@
   </div>
   <div class="habit-lists">
     <select onChange="location.href=value;" class="habit-list">
-      <option>移動したいカテゴリーを選択してください</option>
+      <option value="#">移動したいカテゴリーを選択してください</option>
       <option value=<%= exercises_path %>>運動</option>
       <option value=<%= daiets_path %>>ダイエット</option>
       <option value=<%= learns_path %>>勉強</option>
