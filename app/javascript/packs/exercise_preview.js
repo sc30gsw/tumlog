@@ -2,16 +2,7 @@ if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
   document.addEventListener('DOMContentLoaded', function(){
     const ImageList = document.getElementById('image-list');
 
-    document.getElementById('exercise_image').addEventListener('change', function(e){
-
-      const imageContent = document.querySelector('img');
-      if (imageContent){
-        imageContent.remove();
-      }
-
-      const file = e.target.files[0];
-      const blob = window.URL.createObjectURL(file);
-
+    const createImageHTML = (blob) => {
       const imageElement = document.createElement('div');
       imageElement.setAttribute('class', 'preview');
 
@@ -20,6 +11,18 @@ if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
 
       imageElement.appendChild(blobImage);
       ImageList.appendChild(imageElement);
+    };
+
+    document.getElementById('exercise_image').addEventListener('change', function(e){
+      const imageContent = document.querySelector('img');
+      if (imageContent){
+        imageContent.remove();
+      }
+
+      const file = e.target.files[0];
+      const blob = window.URL.createObjectURL(file);
+
+      createImageHTML(blob);
     });
   });
 }
