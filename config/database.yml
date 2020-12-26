@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: tumlog_production
-  username: tumlog
-  password: <%= ENV['TUMLOG_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
