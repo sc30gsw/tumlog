@@ -1,0 +1,112 @@
+.category-title {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.category-title h1 {
+  font-size: 30px;
+}
+
+.category-sub {
+  text-align: center;
+}
+
+.category-sub p {
+  font-size: 30px;
+}
+
+.category-form {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.search-field {
+  width: 300px;
+  padding: 5px;
+}
+
+.search-btn {
+  padding: 8px;
+  border: grey;
+  background-color: rgb(207, 204, 204);
+  color: black;
+}
+
+.habit-lists {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.habit-list {
+  padding: 10px;
+}
+
+.habit-btn {
+  padding: 40px 20px;
+  background-color: rgb(241, 76, 76);
+  border: grey;
+  border-radius: 5%;
+  color: white;
+  position: fixed;
+  right: 30px;
+  bottom: 10px;
+}
+
+.habit_link {
+  text-decoration: none;
+  color: black;
+}
+
+.habit-current-user {
+  position: absolute;
+  top: 10px;
+  right: 30px;
+}
+
+.habit_user_name {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  padding-right: 10px;
+}
+
+.habit_user_delete {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+}
+
+.habits {
+  margin: 20px auto 0;
+  height: 100vh;
+  width: 80vw;
+  background-color: rgba(211, 211, 211, 0.671);
+  overflow: scroll;
+}
+
+.habit {
+  margin: 50px auto 0;
+  width: 80%;
+  font-size: 20px;
+  background-color: white;
+}
+
+.habit_user_link {
+  text-decoration: none;
+  color: black;
+}
+
+.habit-contents {
+  margin-bottom: 20px;
+  border-bottom: 1px solid gray;
+  text-align: center;
+}
+
+.habit_path {
+  text-decoration: none;
+  color: black;
+}
+
+.habit-time {
+  padding: 15px 0 0;
+}

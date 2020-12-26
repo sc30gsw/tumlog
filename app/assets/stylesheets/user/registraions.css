@@ -14,6 +14,10 @@
   font-weight: bold;
 }
 
+.error-alert ul {
+  list-style: none;
+}
+
 .sign_up_logo {
   height: 80px;
 }
@@ -33,6 +37,10 @@
   background-color: rgba(255, 0, 64, 0.884);
   border-radius: 10%;
   color: white;
+}
+
+.profile-box {
+  padding: 5px;
 }
 
 .password-text {
@@ -65,9 +73,8 @@
 }
 
 .role-lists a {
-  text-decoration: none;
   color: black;
-  border-bottom: 1px solid black;
+  text-decoration: none;
 }
 
 .links {
@@ -82,4 +89,8 @@
   display: block;
   color: black;
   margin-top: 20px;
+}
+
+.alert {
+  display: none;
 }

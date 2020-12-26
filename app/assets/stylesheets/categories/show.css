@@ -1,0 +1,125 @@
+.show-header {
+  width: 100vw;
+  height: 100px;
+  background-color: lightgray;
+}
+
+.show-header-user {
+  float: right;
+  margin-top: 60px;
+  margin-right: 100px;
+}
+
+.show_user_delete {
+  text-decoration: none;
+  color: black;
+}
+
+.show_new_habit {
+  margin-left: 20px;
+  padding: 12px;
+  text-decoration: none;
+  color: black;
+  border: 1px solid black;
+}
+
+.show_user_session {
+  text-decoration: none;
+  color: black;
+}
+
+.show_user_new {
+  text-decoration: none;
+  color: black;
+}
+
+.habit-manage {
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+}
+
+.habit_btn {
+  display: block;
+  border-radius: 10%;
+  border: 1px solid rgb(180, 179, 179);
+  background-color: rgb(235, 76, 76);
+  color: white;
+  text-decoration: none;
+  padding: 5px;
+  margin: 0 10px;
+}
+
+.show-habits {
+  height: calc(100vh - 100px - 350px);
+  padding-top: 50px;
+  text-align: center;
+}
+
+.show-text {
+ font-size: 22px;
+ font-weight: bold; 
+}
+
+.show_user_page {
+  color: black;
+}
+
+.show-footer {
+  height: 350px;
+  background-color: lightgray;
+  padding-top: 20px;
+}
+
+.comment-field {
+  display: flex;
+  justify-content: center;
+}
+
+.comment_label {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.content_field {
+  width: 40%;
+  margin: 10px 10px 0;
+  padding: 2px;
+}
+
+.comment_btn {
+  background-color: rgb(241, 76, 76);
+  color: white;
+  border: 1px solid lightgray;
+  border-radius: 10%;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+.not-comment {
+  text-align: center;
+  color: rgb(241, 76, 76);
+}
+
+.comments {  
+  width: 30%;
+  height: 250px;
+  margin: 20px auto 0;
+  background-color: white;
+  overflow: scroll;
+  text-align: center;
+}
+
+.comment_link {
+  text-decoration: none;
+  color: black;
+}
+
+.comment-user {
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 5px;
+}
+
+.field_with_errors {
+  display: contents;
+}

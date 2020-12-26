@@ -1,0 +1,55 @@
+<div class="category-header">
+  <div class="category-title">
+    <h1>運動</h1>
+  </div>
+  <div class="category-sub">
+    <p>〜Let's Exercise〜</p>
+  </div>
+  <%= render 'shared/category_header' %>
+  <div class="category-form">
+    <%= form_with(url: search_exercises_path, local: true, method: :get, class: 'search_form') do |f| %>
+      <%= f.text_field :keyword, placeholder: "投稿を検索する", class: "search-field" %>
+      <%= f.submit "検索する", class: "search-btn" %>
+    <% end %>
+  
+  <% if user_signed_in? %>
+    <%= form_with url: new_exercise_path, method: :get, local: true do |f| %>
+      <%= f.submit "投稿する", class: "habit-btn" %>
+    <% end %>
+  <% end %>
+  
+  </div>
+  <div class="habit-lists">
+    <select onChange="location.href=value;" class="habit-list">
+      <option value="#">移動したいカテゴリーを選択してください</option>
+      <option value=<%= daiets_path %>>ダイエット</option>
+      <option value=<%= learns_path %>>勉強</option>
+      <option value=<%= savings_path %>>節約</option>
+      <option value=<%= minds_path %>>瞑想</option>
+      <option value=<%= earlies_path %>>早起き</option>
+    </select>
+  </div>
+</div>
+
+<div class="habits">
+  <div class="habit">
+  <% @exercises.each do |exercise| %>
+    <div class="habit-user">
+      <b><%= link_to exercise.user.nickname, user_path(exercise.user_id), class: "habit_user_link" %>さんの積み上げ</b>
+    </div>
+    <%= link_to exercise_path(exercise.id), class: "habit_link" do%>
+    <div class="habit-contents">
+      <div class="habit-text">
+        <%= simple_format(exercise.text) %>
+      </div>
+      <div class="habit-image">
+        <%= image_tag exercise.image.variant(resize: '500x500') if exercise.image.attached? %>
+      </div>
+      <div class="habit-time">
+        <%= exercise.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+      </div>
+    </div>
+    <% end %>
+  <% end %>
+  </div>
+</div>

@@ -4,9 +4,15 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
-require("turbolinks").start()
+//require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("./exercise_preview")
+require("./daiet_preview")
+require("./learn_preview")
+require("./mind_preview")
+require("./early_preview")
+require("./saving_preview")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

@@ -1,0 +1,2 @@
+module EarlyCommentsHelper
+end

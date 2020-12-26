@@ -1,0 +1,62 @@
+<div class="show-header">
+  <%= link_to image_tag("logo.png", class: "header-image", height: "80", width: "200", alt: "積みログ"), savings_path %> 
+  <div class="show-header-user">
+    <% if user_signed_in? %>
+      <div class="show-current-user">
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "show_user_delete" %>
+        <%= link_to "投稿する", new_saving_path , class: "show_new_habit" %>
+      </div>
+    <% else %>
+      <div class="show-logout-user">
+        <%= link_to "ログイン", new_user_session_path, class: "show_user_session" %>
+        <%= link_to "新規登録", new_user_registration_path, class: "show_user_new" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<% if user_signed_in? && current_user.id == @saving.user_id %>
+  <div class="habit-manage">
+    <%= link_to "編集する", edit_saving_path(@saving.id), class: "habit_btn" %>
+    <%= link_to "削除する", saving_path(@saving.id), method: :delete, class: "habit_btn" %>
+  </div>
+<% end %>
+
+<div class="show-habits">
+  <div class="show-habit">
+    <div class="show-text">
+      <%= simple_format(@saving.text) %>
+    </div> 
+    <div class="show-image"> 
+      <%= image_tag @saving.image.variant(resize: '330x330') if @saving.image.attached? %>
+    </div>
+    <div class="show-user">
+      投稿者：<b><%= link_to @saving.user.nickname, user_path(@saving.user_id), class: "show_user_page" %></b>
+    </div> 
+    <%#いいねボタン(予定)%>
+  </div>
+</div>
+<div class="show-footer">
+  <div class="comment-form">
+    <% if user_signed_in? %>
+    <%= form_with(model: [@saving, @comment], local: true) do |f| %>
+      <div class="comment-field">
+        <%= f.label :content, 'コメント', class: 'comment_label' %>
+        <%= f.text_field :content, class: "content_field" %>
+        <%= f.submit '送信する', class: 'comment_btn' %>
+      </div>
+    <% end %> 
+    <% else %>
+      <div class="not-comment">
+        <h3 class="not-text">※コメントの投稿には新規登録/ログインが必要です</h3>
+      </div>   
+    <% end %>
+ </div>
+  <div class="comments">
+    <div class="comment">
+      <% if @comments %>
+        <%= render partial: 'shared/comment', collection: @comments %>
+      <% end %>
+    </div>
+  </div>
+</div>

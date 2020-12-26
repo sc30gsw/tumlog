@@ -1,0 +1,16 @@
+<div class="new-wrapper">
+  <div class="new-header"></div>
+  <div class="new-habits-form">
+    <div class="new-habit">
+      <div class="new-title">
+        <div class="errors">
+          <%= render 'shared/error_messages', model: @exercise, class: "error_messages" %>
+        </div>
+        <h1 class="new-form-title">投稿する</h1>
+      </div>
+      <%= render partial: 'habit_form', locals:{exercise: @exercise} %>
+    </div>
+  </div>
+</div>
+<%= link_to image_tag("logo.png", class: "header-image", height: "80", width: "200", alt: "積みログ"), exercise_path(@exercise.id) %> 
+<%= render 'shared/new_footer' %>
