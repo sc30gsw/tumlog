@@ -11,6 +11,7 @@ class ExercisesController < ApplicationController
   end
 
   def create
+    binding.pry
     @exercise = Exercise.new(exercise_params)
     if @exercise.valid?
       @exercise.save
