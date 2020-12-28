@@ -14,4 +14,3 @@ jobs:
           name: Which bundler?
           command: bundle -v
       - ruby/bundle-install
-      version: 2.1
