@@ -13,10 +13,10 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password: password
+  username: <%= ENV.fetch('DB_USERNAME', 'root') %>
+  password: <%= ENV.fetch('DB_PASSWORD', 'password') %>
   socket: /tmp/mysql.sock
-  host: db
+  host: <%= ENV.fetch('DB_HOST', 'db') %>
 
 development:
   <<: *default
@@ -52,6 +52,7 @@ test:
 production:
     <<: *default
     database: tumlog_production
-    username: root
+    host: <%= ENV.fetch('DB_HOST', 'db') %>
+    username: <%= ENV.fetch('DB_USERNAME', 'root') %>
     password: <%= ENV['DATABASE_PASSWORD'] %>
     socket: /var/lib/mysql/mysql.sock
