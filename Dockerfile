@@ -11,6 +11,6 @@ WORKDIR /tumlog
 ADD ./Gemfile /tumlog/Gemfile
 ADD ./Gemfile.lock /tumlog/Gemfile.lock
 
-RUN gem install bundler 
+RUN gem install bundler:2.1.4
 RUN bundle install
 ADD . /tumlog
