@@ -9,7 +9,7 @@ worker_processes 1
 working_directory rails_root
 
 #Unicornの起動に必要なファイルの設置場所を指定
-pid "#{app_path}/tmp/pids/unicorn.pid"
+pid "#{rails_root}/tmp/pids/unicorn.pid"
 
 #ポート番号を指定
 listen 3000
