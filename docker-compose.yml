@@ -2,9 +2,10 @@ version: '3'
 services:
   db:
     image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: 'password' 
     ports:
-      - "4306:3306"
-    env_file: db.env
+      - "4306:3306" #DockerコンテナとSequelpro接続の為に必要な設定
 
   web:
     build: .
