@@ -14,7 +14,6 @@ jobs:
           name: Which bundler?
           command: bundle -v
       - ruby/bundle-install
-
   deploy:
     docker:
       - image: buildpack-deps:trusty
