@@ -4,8 +4,12 @@ class Exercise < ApplicationRecord
   has_many :exercise_comments, dependent: :destroy
   has_one_attached :image
 
-  validates :text, presence: true
+  validates :text, presence: true, unless: :was_attached?
   validates :user, presence: true
+
+  def was_attached?
+    self.image.attached?
+  end
 
   def self.search(search)
     if search != ""
