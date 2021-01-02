@@ -58,7 +58,6 @@ test:
 production:
     <<: *default
     database: tumlog_production
-    host: <%= ENV.fetch('DB_HOST', 'db') %>
     username: <%= ENV.fetch('DB_USERNAME', 'root') %>
     password: <%= ENV.fetch('DB_PASSWORD', 'password') %>
     socket: /var/lib/mysql/mysql.sock
